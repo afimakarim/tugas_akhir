@@ -48,23 +48,24 @@
                                         </span>
                                     @endif
                                 </div>
-                                <div class="form-grou phas-feedback{{ $errors->has('merek') ? ' has-error' : '' }}">
-                                    <label for="merek">Nama Merek</label>
-                                    <input type="text" class="form-control" id="merek" name="merek"
+                                <div class="form-grou phas-feedback{{ $errors->has('name') ? ' has-error' : '' }}">
+                                    <label for="name">Nama Merek</label>
+                                    <input type="text" class="form-control" id="" name="name"
                                            placeholder="Nama Merek">
-                                    @if ($errors->has('merek'))
+                                    @if ($errors->has('name'))
                                         <span class="help-block">
-                                            <p> {{ $errors->first('merek') }} </p>
+                                            <p> {{ $errors->first('name') }} </p>
                                         </span>
                                     @endif
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                    <button type="submit" class="btn btn-primary" value="save">Tambah</button>
                                 </div>
                             </form>
                         </div>
 
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                            <button type="submit" class="btn btn-primary" value="save">Tambah</button>
-                        </div>
+
                     </div>
                 </div>
             </div>

@@ -37,13 +37,13 @@ class superAdminController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate(request(),[
-            'gambar' => 'required',
-            'merek' => 'required'
+        $this->validate($request(),[
+            'name' => 'required',
+            'gambar' => 'required'
         ]);
-        post::create([
-            'gambar' => request('gambar'),
-            'merek' => request('merek')
+        merek::create([
+            'name' => $request('name'),
+            'gamabar' => $request('gambar')
         ]);
         return redirect()->route('admin.dashboard')->withInfo('Merek Ditambahkan');
     }

@@ -28,7 +28,7 @@
                 <a class="nav-link"  href="#"><i class='fa fa-calculator'></i></i> SPK Pemilihan Sepeda Motor<span class="sr-only">(current)</span></a>
             </li>
         </ul>
-        <div  class="navbar-nav navbar-right col-sm-1" >
+        <div  class="navbar-nav navbar-right col-sm-2" >
             <li class="nav-item dropdown open" style="padding-left: 15px;">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class='fa fa-sign-alt'>Login</i>

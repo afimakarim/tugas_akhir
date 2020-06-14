@@ -41,5 +41,3 @@
 </div>
 @stop 
 
-@section('footerUser')
-@stop

@@ -11,23 +11,26 @@
                     </div>
                 <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <form action="{{ route('admin.merek.update', $merek) }}"  method="post" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                        {{ csrf_field() }}
+                        {{ method_field('PATCH') }}
                         <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="gambar_merek">Gambar Merek</label>
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="gambar">Gambar Merek</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="file" class="form-control-file" id="gambar_merek" name="gambar_merek" required oninvalid="this.setCustomValidity('Tidak Boleh Kosong')" oninput="setCustomValidity('')">
+{{--                                <input type="file" class="form-control-file" id="gambar_merek" name="gambar_merek" >--}}
+                                <input type="text" class="form-control" id="" name="gambar" placeholder="Gambar Merek" value="{{ $merek->gambar }}" required>
                             </div>
                         </div>
                         <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="merek">Nama Merek</label>
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="name">Nama Merek</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" class="form-control" id="merek" name="merek" placeholder="Nama Merek" required oninvalid="this.setCustomValidity(' Tidak Boleh Kosong')" oninput="setCustomValidity('')">
+                                <input type="text" class="form-control" id="" name="name" placeholder="Nama Merek" value="{{ $merek->name }}" required>
                             </div>
                         </div>
                         <div class="ln_solid"></div>
                             <div class="item form-group">
                                 <div class="col-md-6 col-sm-6 offset-md-3">
-                                    <a href="#"><button class="btn btn-primary" type="button">Simpan</button></a>
+                                    <input class="btn btn-primary" type="submit" value="Simpan" ></input>
                                     <a href="{{ route('admin.merek') }}"><button class="btn btn-danger" type="button">Kembali</button></a>
                                 </div>
                             </div>

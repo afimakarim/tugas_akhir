@@ -4,18 +4,19 @@
     <div class="right_col" role="main">
         <div class="page-title">
             <div class="title_left">
+                @include('layouts.partials._alerts')
                 <h3>Merek Sepeda Motor </h3>
             </div>
-                <br>
-                <br>
-                <!-- <div class="col-md-5 col-sm-5  form-group pull-right top_search">
-                    <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" href="#">Go!</button>
-                    </span>
-                    </div>
-                </div> -->
+            <br>
+            <br>
+            <!-- <div class="col-md-5 col-sm-5  form-group pull-right top_search">
+                <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" href="#">Go!</button>
+                </span>
+                </div>
+            </div> -->
 
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop"
@@ -37,27 +38,30 @@
                         <div class="modal-body">
                             <form action="{{ route('admin.merek.store') }}" method="post">
                                 {{ csrf_field() }}
+
                                 <div class="form-group has-feedback{{ $errors->has('gambar') ? ' has-error' : '' }}">
                                     <label for="">Gambar Merek</label>
                                     {{--                                    <input type="file" class="form-control-file" id="gambar_merek" name="gambar_merek">--}}
                                     <input type="text" class="form-control" id="gambar_merek" name="gambar"
-                                           placeholder="gambar">
+                                           placeholder="gambar" required>
                                     @if ($errors->has('gambar'))
                                         <span class="help-block">
                                             <p> {{ $errors->first('gambar') }} </p>
                                         </span>
                                     @endif
                                 </div>
-                                <div class="form-grou phas-feedback{{ $errors->has('name') ? ' has-error' : '' }}">
+
+                                <div class="form-group phas-feedback{{ $errors->has('name') ? ' has-error' : '' }}">
                                     <label for="name">Nama Merek</label>
                                     <input type="text" class="form-control" id="" name="name"
-                                           placeholder="Nama Merek">
+                                           placeholder="Nama Merek" required>
                                     @if ($errors->has('name'))
                                         <span class="help-block">
                                             <p> {{ $errors->first('name') }} </p>
                                         </span>
                                     @endif
                                 </div>
+
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                                     <button type="submit" class="btn btn-primary" value="save">Tambah</button>
@@ -74,6 +78,7 @@
 
             <!--Tabel -->
             <table id="myTable" class="table table-bordered text-center">
+
                 <thead>
                 <tr style="background-color: Gainsboro;">
                     <th scope="col">Gambar</th>
@@ -82,18 +87,19 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td><img src="{{asset('img/honda.png')}}" style="width:80px;height:60px;"></td>
-                    <td>Honda</td>
-                    <td><a href="{{ route('admin.merek.edit') }}"><i class='fa fa-edit'
-                                                                     style='font-size:25px;color:blue' alt="logo"
-                                                                     title="Edit"
-                                                                     onclick="return confirm('Yakin Anda ingin mengedit Data ini ?')"></i>
-                        </a> <a href=""><i class='fa fa-trash' style='font-size:25px;color:red' title="Hapus"
-                                           onclick="return confirm('Yakin Anda ingin menghapus Data ini ?')"> </i></a>
-                    </td>
-                </tr>
-
+                @foreach($mereks as $merek)
+                    <tr>
+                        <td>{{ $merek->gambar }}</td>
+                        <td>{{ $merek->name }}</td>
+                        <td><a href="{{ route('admin.merek.edit', $merek) }}"onclick="return confirm('Yakin Anda ingin menngedit Data ini ?')"><i class='fa fa-edit'
+                                                                                 style='font-size:25px;color:blue'
+                                                                                 alt="logo" title="Edit"></i> </a>
+                            <a href="{{ route('admin.merek.delete', $merek) }}"onclick="return confirm('Yakin Anda ingin menghapus Data ini ?')"><i class='fa fa-trash'
+                                                                                                                                                    style='font-size:25px;color:red'
+                                                                                                                                                    title="Hapus"> </i></a>
+                        </td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
             <!--End Tabel-->

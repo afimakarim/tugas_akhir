@@ -14,11 +14,11 @@ class CreateDealersTable extends Migration
     public function up()
     {
         Schema::create('dealers', function (Blueprint $table) {
-            $table->increments('id');
+            $table->SoftDeletes();
+            $table->bigIncrements('id');
             $table->string('name');
             $table->string('email',100)->unique();
             $table->string('password',100);
-            $table->string('job_title');
             $table->string('gambar');
             $table->rememberToken();
             $table->timestamps();

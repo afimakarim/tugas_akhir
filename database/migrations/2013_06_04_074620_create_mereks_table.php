@@ -14,7 +14,8 @@ class CreateMereksTable extends Migration
     public function up()
     {
         Schema::create('mereks', function (Blueprint $table) {
-            $table->increments('id');
+            $table->SoftDeletes();
+            $table->bigIncrements('id');
             $table->string('name');
             $table->string('gambar');
             $table->timestamps();

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Merek;
+use App\User;
 use Illuminate\Http\Request;
 
 class superAdminController extends Controller
@@ -11,24 +12,88 @@ class superAdminController extends Controller
     {
         $this->middleware('auth:admin');
     }
+
     public function index()
     {
         return view('superAdmin.homeSuperAdmin');
     }
 
-    
+
     public function homeSuperAdmin()
     {
         return view('superAdmin.homeSuperAdmin');
     }
+
     public function userAdminPusat()
     {
-        return view('superAdmin.userAdminPusat');
+        $mereks = Merek::all();
+        $users = User::all();
+
+        return view('superAdmin.userAdminPusat', compact(['mereks', 'users']));
     }
-    public function editUserAdminPusat()
+
+    public function store2(Request $request)
     {
-        return view('superAdmin.editUserAdminPusat');
+        $this->validate($request, [
+            'name' => 'required',
+            'gambar' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'merek_id' => 'required'
+        ]);
+//
+        $user = new User();
+        $user->gambar = $request->gambar;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->name = $request->name;
+        $user->merek_id = $request->merek_id;
+        $user->save();
+//        var_dump($request);
+//        User::create([
+//            'name' => $request['name'],
+//            'gambar' => $request['gambar'],
+//            'email' => $request['email'],
+//            'password' => bcrypt($request->password),
+//            'merek_id' => $request['merek_id']
+//        ]);
+        return redirect()->route('admin.pusat')->withInfo('Merek Ditambahkan');
     }
+
+    public function editUserAdminPusat(User $user)
+    {
+        $mereks = Merek::all();
+        return view('superAdmin.editUserAdminPusat', compact('user', 'mereks'));
+    }
+
+    public function updateUserAdminPusat(Request $request, User $user)
+    {
+        $user->gambar = $request->gambar;
+        $user->email = $request->email;
+        $user->name = $request->name;
+        $user->merek_id = $request->merek_id;
+        if (!empty($request['password'])) {
+            $user->password = bcrypt($request->password);
+        }
+        $user->update();
+//        $user->update([
+//            'name' => $request['name'],
+//            'gambar' => $request['gambar'],
+//            'email' => $request['email'],
+//            'password' => bcrypt($request['password']),
+//            'merek_id' => $request['merek_id']
+//        ]);
+        return redirect()->route('admin.pusat')->withInfo('Merek berhasil dirubah');
+    }
+
+    public function destroy2(User $user)
+    {
+//        $user = User::where('id', $id)->first();
+        $user->delete();
+        return redirect()->route('admin.pusat')->withDanger('Merek berhasil dihapus');
+    }
+
+
     public function merek()
     {
         $mereks = Merek::all();
@@ -37,18 +102,46 @@ class superAdminController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request(),[
-            'name' => 'required',
-            'gambar' => 'required'
+        $this->validate($request, [
+            'gambar' => 'required',
+            'name' => 'required'
         ]);
-        merek::create([
-            'name' => $request('name'),
-            'gamabar' => $request('gambar')
-        ]);
-        return redirect()->route('admin.dashboard')->withInfo('Merek Ditambahkan');
+        $merek = new Merek();
+        $merek->gambar = $request->gambar;
+        $merek->name = $request->name;
+        $merek->save();
+//        merek::create([
+//            'name' => $request['name'],
+//            'gambar' => $request['gambar']
+//        ]);
+        return redirect()->route('admin.merek')->withInfo('Merek Ditambahkan');
     }
-    public function editMerek()
+
+    public function editMerek(Merek $merek)
     {
-        return view('superAdmin.editMerek');
+        return view('superAdmin.editMerek', compact('merek'));
+    }
+
+    public function updateMerek(Request $request, Merek $merek)
+    {
+        $this->validate($request, [
+            'gambar' => 'required',
+            'name' => 'required'
+        ]);
+        $merek->gambar = $request->gambar;
+        $merek->name = $request->name;
+        $merek->update();
+//        $merek->update([
+//            'name' => request('name'),
+//            'gambar' => request('gambar')
+//        ]);
+
+        return redirect()->route('admin.merek')->withInfo('Merek berhasil dirubah');
+    }
+
+    public function destroy(Merek $merek)
+    {
+        $merek->delete();
+        return redirect()->route('admin.merek')->withDanger('Merek berhasil dihapus');
     }
 }

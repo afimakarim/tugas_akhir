@@ -26,11 +26,18 @@ Route::get('/', function () {
      Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
      Route::get('/', 'superAdminController@index')->name('admin.dashboard');
      Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
+
      Route::get('/userAdminPusat','superAdminController@userAdminPusat')->name('admin.pusat');
-     Route::get('/editUserAdminPusat','superAdminController@editUserAdminPusat')->name('admin.pusat.edit');
+     Route::post('/userAdminPusat','superAdminController@store2')->name('admin.pusat.store2');
+     Route::get('/{user}/editUserAdminPusat','superAdminController@editUserAdminPusat')->name('admin.pusat.edit');
+     Route::patch('/{user}/editUserAdminPusat','superAdminController@updateUserAdminPusat')->name('admin.pusat.update');
+     Route::get('/{user}/deleteUserAdminPusat','superAdminController@destroy2')->name('admin.pusat.delete');
+
      Route::get('/merek','superAdminController@merek')->name('admin.merek');
      Route::post('/merek', 'superAdminController@store')->name('admin.merek.store');
-     Route::get('/editMerek','superAdminController@editMerek')->name('admin.merek.edit');
+     Route::get('/{merek}/editMerek','superAdminController@editMerek')->name('admin.merek.edit');
+     Route::patch('/{merek}/editMerek', 'superAdminController@updateMerek')->name('admin.merek.update');
+     Route::get('/{merek}/deleteMerek', 'superAdminController@destroy')->name('admin.merek.delete');
 
      // Password Reset routes
      Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
@@ -46,7 +53,7 @@ Route::get('/', function () {
     Route::get('/', 'adminPusatController@index')->name('pusat.dashboard');
     Route::get('/logout', 'Auth\LoginController@logout')->name('pusat.logout');
     Route::get('/userAdminDealer','adminPusatController@userAdminDealer')->name('pusat.dealer');
-    Route::get('/editUserAdminPusat','adminPusatController@editUserAdminPusat')->name('pusat.dealer.edit');
+    Route::get('/editUserAdminDealer','adminPusatController@editUserAdminDealer')->name('pusat.dealer.edit');
     Route::get('/dataMotor','adminPusatController@dataMotor')->name('pusat.motor');
     Route::get('/editDataMotor','adminPusatController@editDataMotor')->name('pusat.motor.edit');
 

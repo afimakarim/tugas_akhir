@@ -17,7 +17,7 @@ class Dealer extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'job_title', 'gambar',
+        'name', 'email', 'password',  'gambar',
     ];
 
     /**

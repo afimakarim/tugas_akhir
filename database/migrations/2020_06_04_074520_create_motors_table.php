@@ -14,8 +14,9 @@ class CreateMotorsTable extends Migration
     public function up()
     {
         Schema::create('motors', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('merek_id')->unsigned();
+            $table->SoftDeletes();
+            $table->bigIncrements('id');
+            $table->integer('merek_id');
             $table->string('gambar');
             $table->string('jenis_motor');
             $table->string('tipe_motor');

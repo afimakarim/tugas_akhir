@@ -11,14 +11,14 @@
                     </div>
                 <div class="x_content">
                     <br />
-                    <form action="{{ route('admin.merek.update', $merek) }}"  method="post" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <form action="{{ route('admin.merek.update', $merek) }}"  enctype="multipart/form-data" method="post" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                         {{ csrf_field() }}
-                        {{ method_field('PATCH') }}
+                        {{ method_field('POST') }}
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="gambar">Gambar Merek</label>
                             <div class="col-md-6 col-sm-6 ">
-{{--                                <input type="file" class="form-control-file" id="gambar_merek" name="gambar_merek" >--}}
-                                <input type="text" class="form-control" id="" name="gambar" placeholder="Gambar Merek" value="{{ $merek->gambar }}" required>
+                                <img src="{{ asset("storage/$merek->gambar") }}" alt="" class="" height="128">
+                                <input type="file" class="form-control" id="" name="gambar" placeholder="Gambar Merek" value="{{ $merek->gambar }}" required>
                             </div>
                         </div>
                         <div class="item form-group">

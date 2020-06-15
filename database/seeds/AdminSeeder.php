@@ -15,7 +15,7 @@ class AdminSeeder extends Seeder
             'name' => "admin",
             'email' => "admin@gmail.com",
             'password' => \Illuminate\Support\Facades\Hash::make("12345678"),
-            'gambar' => "admin.jpg"
+//            'gambar' => "admin.jpg"
         ]);
     }
 }

@@ -17,7 +17,7 @@ class CreateMereksTable extends Migration
             $table->SoftDeletes();
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('gambar');
+            $table->string('gambar')->nullable()->default(null);
             $table->timestamps();
         });
     }

@@ -17,7 +17,7 @@ class CreateMotorsTable extends Migration
             $table->SoftDeletes();
             $table->bigIncrements('id');
             $table->integer('merek_id');
-            $table->string('gambar');
+            $table->string('gambar')->nullable()->default(null);
             $table->string('jenis_motor');
             $table->string('tipe_motor');
             $table->string('harga_motor');

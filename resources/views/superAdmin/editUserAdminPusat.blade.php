@@ -11,13 +11,13 @@
                     </div>
                 <div class="x_content">
                     <br />
-                    <form action="{{ route('admin.pusat.update', $user) }}"  method="post"  id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <form action="{{ route('admin.pusat.update', $user) }}"  enctype="multipart/form-data" method="post"  id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                         {{ csrf_field() }}
-                        {{ method_field('PATCH') }}
+                        {{ method_field('POST') }}
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="gambar_pusat">Gambar</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" class="form-control" id="gambar_pusat" name="gambar" placeholder="Gambar Admin Pusat" value="{{ $user->gambar }}">
+                                <input type="file" class="form-control" id="gambar_pusat" name="gambar" placeholder="Gambar Admin Pusat" value="{{ $user->gambar }}">
                             </div>
                         </div>
                         <div class="item form-group">

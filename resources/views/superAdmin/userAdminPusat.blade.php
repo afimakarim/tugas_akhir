@@ -37,13 +37,13 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{ route('admin.pusat.store2') }}" method="post">
+                            <form action="{{ route('admin.pusat.store2') }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
 
                                 <div class="form-group has-feedback{{ $errors->has('gambar') ? ' has-error' : '' }}">
                                     <label for="">Gambar Merek</label>
                                     {{--                                    <input type="file" class="form-control-file" id="gambar_merek" name="gambar_merek">--}}
-                                    <input type="text" class="form-control" id="gambar_merek" name="gambar"
+                                    <input type="file" class="form-control" id="gambar_merek" name="gambar"
                                            placeholder="gambar" required>
                                     @if ($errors->has('gambar'))
                                         <span class="help-block">
@@ -63,7 +63,7 @@
                                 <div class="form-group phas-feedback{{ $errors->has('name') ? ' has-error' : '' }}">
                                     <label for="name">Username</label>
                                     <input type="text" class="form-control" id="" name="name"
-                                           placeholder="Nama Merek" required>
+                                           placeholder="Nama Admin Pusat" required>
                                     @if ($errors->has('name'))
                                         <span class="help-block">
                                             <p> {{ $errors->first('name') }} </p>
@@ -109,20 +109,19 @@
                 <thead>
                 <tr style="background-color: Gainsboro;">
                     <th scope="col">Gambar</th>
+                    <th scope="col">Nama Admin Pusat</th>
                     <th scope="col">Merek Motor</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Nama Admin Pusat</th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($users as $user)
                     <tr>
-                        {{--                 <td><img src="{{asset('img/dealerHonda2.jpg')}}" style="width:80px;height:60px;"></td>--}}
-                        <td>{{ $user->gambar }}</td>
+                        <td><img src="{{ asset("storage/$user->gambar") }}" style="height: 100px; width: auto" alt=""></td>
+                        <td>{{ $user->name }}</td>
                         <td>{{ $user->merek->name}}</td>
                         <td>{{ $user->email }}</td>
-                        <td>{{ $user->name }}</td>
                         <td><a href="{{ route('admin.pusat.edit', $user) }}"onclick="return confirm('Yakin Anda ingin mengedit Data ini ?')"><i class='fa fa-edit'
                                                                                                                                                   style='font-size:25px;color:blue'
                                                                                                                                                   alt="logo" title="Edit"></i></a>

@@ -19,7 +19,7 @@ class CreateDealersTable extends Migration
             $table->string('name');
             $table->string('email',100)->unique();
             $table->string('password',100);
-            $table->string('gambar');
+            $table->string('gambar')->nullable()->default(null);
             $table->rememberToken();
             $table->timestamps();
         });

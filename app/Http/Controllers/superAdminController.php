@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Merek;
 use App\User;
 use Illuminate\Http\Request;
+use Storage;
 
 class superAdminController extends Controller
 {
@@ -34,16 +35,8 @@ class superAdminController extends Controller
 
     public function store2(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'gambar' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-            'merek_id' => 'required'
-        ]);
-//
         $user = new User();
-        $user->gambar = $request->gambar;
+        $user->gambar = $request->file('gambar')->store('pusat');
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->name = $request->name;
@@ -68,7 +61,10 @@ class superAdminController extends Controller
 
     public function updateUserAdminPusat(Request $request, User $user)
     {
-        $user->gambar = $request->gambar;
+        if ($request['gambar']) {
+            Storage::delete($user['gambar']);
+        }
+        $user->gambar = $request->file('gambar')->store('pusat');
         $user->email = $request->email;
         $user->name = $request->name;
         $user->merek_id = $request->merek_id;
@@ -102,12 +98,8 @@ class superAdminController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'gambar' => 'required',
-            'name' => 'required'
-        ]);
         $merek = new Merek();
-        $merek->gambar = $request->gambar;
+        $merek->gambar = $request->file('gambar')->store('merk');
         $merek->name = $request->name;
         $merek->save();
 //        merek::create([
@@ -124,11 +116,11 @@ class superAdminController extends Controller
 
     public function updateMerek(Request $request, Merek $merek)
     {
-        $this->validate($request, [
-            'gambar' => 'required',
-            'name' => 'required'
-        ]);
-        $merek->gambar = $request->gambar;
+        if ($request['gambar']) {
+            Storage::delete($merek['gambar']);
+        }
+//        dd($request);
+        $merek->gambar = $request->file('gambar')->store('merk');
         $merek->name = $request->name;
         $merek->update();
 //        $merek->update([

@@ -36,30 +36,19 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{ route('admin.merek.store') }}" method="post">
+                            <form action="{{ route('admin.merek.store') }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
 
-                                <div class="form-group has-feedback{{ $errors->has('gambar') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="">Gambar Merek</label>
-                                    {{--                                    <input type="file" class="form-control-file" id="gambar_merek" name="gambar_merek">--}}
-                                    <input type="text" class="form-control" id="gambar_merek" name="gambar"
+                                    <input type="file" class="form-control" id="gambar_merek" name="gambar"
                                            placeholder="gambar" required>
-                                    @if ($errors->has('gambar'))
-                                        <span class="help-block">
-                                            <p> {{ $errors->first('gambar') }} </p>
-                                        </span>
-                                    @endif
                                 </div>
 
-                                <div class="form-group phas-feedback{{ $errors->has('name') ? ' has-error' : '' }}">
+                                <div class="form-group ">
                                     <label for="name">Nama Merek</label>
                                     <input type="text" class="form-control" id="" name="name"
                                            placeholder="Nama Merek" required>
-                                    @if ($errors->has('name'))
-                                        <span class="help-block">
-                                            <p> {{ $errors->first('name') }} </p>
-                                        </span>
-                                    @endif
                                 </div>
 
                                 <div class="modal-footer">
@@ -89,7 +78,8 @@
                 <tbody>
                 @foreach($mereks as $merek)
                     <tr>
-                        <td>{{ $merek->gambar }}</td>
+{{--                        <td>{{ $merek->gambar }}</td>--}}
+                        <td><img src="{{ asset("storage/$merek->gambar") }}" style="height: 100px; width: auto" alt=""></td>
                         <td>{{ $merek->name }}</td>
                         <td><a href="{{ route('admin.merek.edit', $merek) }}"onclick="return confirm('Yakin Anda ingin menngedit Data ini ?')"><i class='fa fa-edit'
                                                                                  style='font-size:25px;color:blue'

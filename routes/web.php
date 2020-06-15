@@ -30,13 +30,13 @@ Route::get('/', function () {
      Route::get('/userAdminPusat','superAdminController@userAdminPusat')->name('admin.pusat');
      Route::post('/userAdminPusat','superAdminController@store2')->name('admin.pusat.store2');
      Route::get('/{user}/editUserAdminPusat','superAdminController@editUserAdminPusat')->name('admin.pusat.edit');
-     Route::patch('/{user}/editUserAdminPusat','superAdminController@updateUserAdminPusat')->name('admin.pusat.update');
+     Route::post('/{user}/editUserAdminPusat','superAdminController@updateUserAdminPusat')->name('admin.pusat.update');
      Route::get('/{user}/deleteUserAdminPusat','superAdminController@destroy2')->name('admin.pusat.delete');
 
      Route::get('/merek','superAdminController@merek')->name('admin.merek');
      Route::post('/merek', 'superAdminController@store')->name('admin.merek.store');
      Route::get('/{merek}/editMerek','superAdminController@editMerek')->name('admin.merek.edit');
-     Route::patch('/{merek}/editMerek', 'superAdminController@updateMerek')->name('admin.merek.update');
+     Route::post('/{merek}/editMerek', 'superAdminController@updateMerek')->name('admin.merek.update');
      Route::get('/{merek}/deleteMerek', 'superAdminController@destroy')->name('admin.merek.delete');
 
      // Password Reset routes

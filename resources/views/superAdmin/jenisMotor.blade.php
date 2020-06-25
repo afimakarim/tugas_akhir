@@ -5,7 +5,7 @@
         <div class="page-title">
             <div class="title_left">
                 @include('layouts.partials._alerts')
-                <h3>Merek Sepeda Motor </h3>
+                <h3>Jenis Sepeda Motor </h3>
             </div>
             <br>
             <br>
@@ -27,19 +27,13 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{ route('admin.merek.store') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('admin.jenis.store5') }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
 
-                                <div class="form-group">
-                                    <label for="">Gambar Merek</label>
-                                    <input type="file" class="form-control" id="gambar_merek" name="gambar"
-                                           placeholder="gambar" required>
-                                </div>
-
                                 <div class="form-group ">
-                                    <label for="name">Nama Merek</label>
+                                    <label for="name">Jenis Motor</label>
                                     <input type="text" class="form-control" id="" name="name"
-                                           placeholder="Nama Merek" required>
+                                           placeholder="Jenis Motor" required>
                                 </div>
 
                                 <div class="modal-footer">
@@ -61,27 +55,23 @@
 
                 <thead>
                 <tr style="background-color: Gainsboro;">
-                    <th scope="col">Gambar</th>
                     <th scope="col">Nama Merek</th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($mereks as $merek)
+                @foreach($jenis as $jenis)
                     <tr>
                         <td>
-                            <img src="{{ asset("storage/$merek->gambar") }}" style="height: 100px; width: auto" alt="">
+                            {{ $jenis->name }}
                         </td>
-                        <td>
-                            {{ $merek->name }}
-                        </td>
-                        <td><a href="{{ route('admin.merek.edit', $merek) }}"
+                        <td><a href="{{ route('admin.jenis.edit', $jenis) }}"
                                onclick="return confirm('Yakin Anda ingin menngedit Data ini ?')"><i class='fa fa-edit'
                                                                                                     style='font-size:25px;color:blue'
                                                                                                     alt="logo"
                                                                                                     title="Edit"></i>
                             </a>
-                            <a href="{{ route('admin.merek.delete', $merek) }}"
+                            <a href="{{ route('admin.jenis.delete', $jenis) }}"
                                onclick="return confirm('Yakin Anda ingin menghapus Data ini ?')"><i class='fa fa-trash'
                                                                                                     style='font-size:25px;color:red'
                                                                                                     title="Hapus"> </i></a>

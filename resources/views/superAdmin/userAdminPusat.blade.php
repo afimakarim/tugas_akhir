@@ -10,16 +10,7 @@
 
             <br>
             <br>
-        {{--        <div class="col-md-5 col-sm-5  form-group pull-right top_search">--}}
-        {{--            <div class="input-group">--}}
-        {{--            <input type="text" class="form-control" placeholder="Search for...">--}}
-        {{--            <span class="input-group-btn">--}}
-        {{--                <button class="btn btn-default" href="#">Go!</button>--}}
-        {{--            </span>--}}
-        {{--            </div>--}}
-        {{--        </div>--}}
-
-        <!-- Button trigger modal -->
+            <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop"
                     title="Tambah" style="float : right"><span class="fa fa-plus"></span> Tambah Data
             </button>
@@ -37,11 +28,12 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{ route('admin.pusat.store2') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('admin.pusat.store2') }}" method="post"
+                                  enctype="multipart/form-data">
                                 {{ csrf_field() }}
 
                                 <div class="form-group has-feedback{{ $errors->has('gambar') ? ' has-error' : '' }}">
-                                    <label for="">Gambar Merek</label>
+                                    <label for="">Gambar</label>
                                     {{--                                    <input type="file" class="form-control-file" id="gambar_merek" name="gambar_merek">--}}
                                     <input type="file" class="form-control" id="gambar_merek" name="gambar"
                                            placeholder="gambar" required>
@@ -60,7 +52,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="form-group phas-feedback{{ $errors->has('name') ? ' has-error' : '' }}">
+                                <div class="form-group has-feedback{{ $errors->has('name') ? ' has-error' : '' }}">
                                     <label for="name">Username</label>
                                     <input type="text" class="form-control" id="" name="name"
                                            placeholder="Nama Admin Pusat" required>
@@ -71,7 +63,7 @@
                                     @endif
                                 </div>
 
-                                <div class="form-group phas-feedback{{ $errors->has('email') ? ' has-error' : '' }}">
+                                <div class="form-group has-feedback{{ $errors->has('email') ? ' has-error' : '' }}">
                                     <label for="name">Email</label>
                                     <input type="email" class="form-control" id="" name="email"
                                            placeholder="Email" required>
@@ -81,9 +73,10 @@
                                         </span>
                                     @endif
                                 </div>
-                                <div class="form-group phas-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
-                                    <label for="name">Password</label>
-                                    <input type="password" class="form-control" id="" name="password" data-toggle="password"
+                                <div class="form-group has-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
+                                    <label for="">Password</label>
+                                    <input type="password" class="form-control" id="" name="password"
+                                           data-toggle="password"
                                            placeholder="Password" required>
                                     @if ($errors->has('password'))
                                         <span class="help-block">
@@ -118,16 +111,20 @@
                 <tbody>
                 @foreach($users as $user)
                     <tr>
-                        <td><img src="{{ asset("storage/$user->gambar") }}" style="height: 100px; width: auto" alt=""></td>
+                        <td><img src="{{ asset("storage/$user->gambar") }}" style="height: 100px; width: auto" alt="">
+                        </td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->merek->name}}</td>
                         <td>{{ $user->email }}</td>
-                        <td><a href="{{ route('admin.pusat.edit', $user) }}"onclick="return confirm('Yakin Anda ingin mengedit Data ini ?')"><i class='fa fa-edit'
-                                                                                                                                                  style='font-size:25px;color:blue'
-                                                                                                                                                  alt="logo" title="Edit"></i></a>
-                            <a href="{{ route('admin.pusat.delete', $user) }}"onclick="return confirm('Yakin Anda ingin menghapus Data ini ?')"><i class='fa fa-trash'
-                                                                                                                                                    style='font-size:25px;color:red'
-                                                                                                                                                    title="Hapus"> </i></a>
+                        <td><a href="{{ route('admin.pusat.edit', $user) }}"
+                               onclick="return confirm('Yakin Anda ingin mengedit Data ini ?')"><i class='fa fa-edit'
+                                                                                                   style='font-size:25px;color:blue'
+                                                                                                   alt="logo"
+                                                                                                   title="Edit"></i></a>
+                            <a href="{{ route('admin.pusat.delete', $user) }}"
+                               onclick="return confirm('Yakin Anda ingin menghapus Data ini ?')"><i class='fa fa-trash'
+                                                                                                    style='font-size:25px;color:red'
+                                                                                                    title="Hapus"> </i></a>
                         </td>
                     </tr>
                 @endforeach

@@ -16,9 +16,9 @@ class CreateMotorsTable extends Migration
         Schema::create('motors', function (Blueprint $table) {
             $table->SoftDeletes();
             $table->bigIncrements('id');
-            $table->integer('merek_id');
+            $table->bigInteger('merek_id')->unsigned();
+            $table->Integer('jenis_id')->unsigned();
             $table->string('gambar')->nullable()->default(null);
-            $table->string('jenis_motor');
             $table->string('tipe_motor');
             $table->string('harga_motor');
             $table->string('bahan_bakar');
@@ -29,6 +29,9 @@ class CreateMotorsTable extends Migration
             $table->string('tenaga_maksimal');
             $table->string('jenis_transmisi');
             $table->timestamps();
+
+            $table->foreign('jenis_id')->references('id')->on('jenis')->onDelete('CASCADE');
+            $table->foreign('merek_id')->references('id')->on('mereks')->onDelete('CASCADE');
         });
     }
 

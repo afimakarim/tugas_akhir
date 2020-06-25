@@ -27,6 +27,7 @@
             <ul class="nav side-menu">
                 <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-home"></i> Home </a></li>
                 <li><a href="{{ route('admin.merek') }}"><i class="fa fa-clipboard"></i> Merek Sepeda Motor </a></li>
+                <li><a href="{{ route('admin.jenis') }}"><i class="fa fa-columns"></i> Jenis Sepeda Motor </a></li>
                 <li><a href="{{ route('admin.pusat') }}"><i class="fa fa-users"></i> User Admin Pusat </a></li>
 
                 <!-- <li><a><i class="fa fa-calculator"></i> SPK Weighted Product<span class="fa fa-chevron-down"></span></a>

@@ -16,7 +16,9 @@ Route::get('/', function () {
 });
 
  //percobaan
- Auth::routes();
+Auth::routes();
+// Auth::routes(["register" => false]);
+// Auth::routes(["except" => "register"]);
 
  Route::get('/home', 'HomeController@index');
  Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
@@ -39,6 +41,13 @@ Route::get('/', function () {
      Route::post('/{merek}/editMerek', 'superAdminController@updateMerek')->name('admin.merek.update');
      Route::get('/{merek}/deleteMerek', 'superAdminController@destroy')->name('admin.merek.delete');
 
+     Route::get('/jenis','superAdminController@jenis')->name('admin.jenis');
+     Route::post('/jenis', 'superAdminController@store5')->name('admin.jenis.store5');
+     Route::get('/{jenis}/editJenis','superAdminController@editJenis')->name('admin.jenis.edit');
+     Route::post('/{jenis}/editJenis', 'superAdminController@updateJenis')->name('admin.jenis.update');
+     Route::get('/{jenis}/deleteJenis', 'superAdminController@destroy5')->name('admin.jenis.delete');
+
+
      // Password Reset routes
      Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
      Route::get('/password/reset', 'Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
@@ -52,10 +61,20 @@ Route::get('/', function () {
     Route::post('/login', 'Auth\LoginController@login')->name('pusat.login.submit');
     Route::get('/', 'adminPusatController@index')->name('pusat.dashboard');
     Route::get('/logout', 'Auth\LoginController@logout')->name('pusat.logout');
+
+
     Route::get('/userAdminDealer','adminPusatController@userAdminDealer')->name('pusat.dealer');
-    Route::get('/editUserAdminDealer','adminPusatController@editUserAdminDealer')->name('pusat.dealer.edit');
+    Route::post('/userAdminPusat','adminPusatController@store3')->name('pusat.dealer.store3');
+    Route::get('/{dealer}/editUserAdminDealer','adminPusatController@editUserAdminDealer')->name('pusat.dealer.edit');
+    Route::post('/{dealer}/editUserAdminDealer','adminPusatController@updateUserAdminDealer')->name('pusat.dealer.update');
+    Route::get('/{dealer}/deleteUserAdminDealer','adminPusatController@destroy3')->name('pusat.dealer.delete');
+
+
     Route::get('/dataMotor','adminPusatController@dataMotor')->name('pusat.motor');
-    Route::get('/editDataMotor','adminPusatController@editDataMotor')->name('pusat.motor.edit');
+    Route::post('/dataMotor','adminPusatController@store4')->name('pusat.motor.store4');
+    Route::get('/{motor}/editDataMotor','adminPusatController@editDataMotor')->name('pusat.motor.edit');
+    Route::post('/{motor}/editDataMotor','adminPusatController@updateDataMotor')->name('pusat.motor.update');
+    Route::get('/{motor}/deleteDataMotor','adminPusatController@destroy4')->name('pusat.motor.delete');
 
 });
 

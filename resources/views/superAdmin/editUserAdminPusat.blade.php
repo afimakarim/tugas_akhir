@@ -17,6 +17,7 @@
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="gambar_pusat">Gambar</label>
                             <div class="col-md-6 col-sm-6 ">
+                                <img src="{{ asset("storage/$user->gambar") }}" alt="" class="" height="128">
                                 <input type="file" class="form-control" id="gambar_pusat" name="gambar" placeholder="Gambar Admin Pusat" value="{{ $user->gambar }}">
                             </div>
                         </div>

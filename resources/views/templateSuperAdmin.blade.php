@@ -52,6 +52,7 @@
     <script src="{{asset('vendors/jquery/dist/jquery.min.js')}}"></script>
     <!-- Bootstrap -->
     <script src="{{asset('vendors/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+
     <!-- FastClick -->
     <script src="{{asset('vendors/fastclick/lib/fastclick.js')}}"></script>
     <!-- NProgress -->
@@ -89,6 +90,7 @@
     <!-- Custom Theme Scripts -->
     <script src="{{asset('build/js/custom.min.js')}}"></script>           
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
     <script type="text/javascript">
         $(document).ready( function () {
             $('#myTable').DataTable();

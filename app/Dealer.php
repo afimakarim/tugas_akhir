@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\DealerResetPasswordNotification;
@@ -9,15 +10,19 @@ use App\Notifications\DealerResetPasswordNotification;
 class Dealer extends Authenticatable
 {
     use Notifiable;
-
-    protected $guard = 'dealer';
+    use SoftDeletes;
+    protected $table = 'dealers';
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',  'gambar',
+        'name', 'email', 'password',  'gambar', 'user_id'
     ];
 
     /**

@@ -94,5 +94,17 @@
             $('#myTable').DataTable();
         } );
     </script>
+
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js"></script>
+    <script type="text/javascript">
+
+        $("#password").password('toggle');
+
+    </script>
+
+
+
 </body>
 </html>

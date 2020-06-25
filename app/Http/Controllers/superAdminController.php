@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Merek;
 use App\User;
+use App\Jenis;
 use Illuminate\Http\Request;
 use Storage;
 
@@ -63,8 +64,8 @@ class superAdminController extends Controller
     {
         if ($request['gambar']) {
             Storage::delete($user['gambar']);
+            $user->gambar = $request->file('gambar')->store('pusat');
         }
-        $user->gambar = $request->file('gambar')->store('pusat');
         $user->email = $request->email;
         $user->name = $request->name;
         $user->merek_id = $request->merek_id;
@@ -118,9 +119,9 @@ class superAdminController extends Controller
     {
         if ($request['gambar']) {
             Storage::delete($merek['gambar']);
+            $merek->gambar = $request->file('gambar')->store('merk');
         }
 //        dd($request);
-        $merek->gambar = $request->file('gambar')->store('merk');
         $merek->name = $request->name;
         $merek->update();
 //        $merek->update([
@@ -135,5 +136,35 @@ class superAdminController extends Controller
     {
         $merek->delete();
         return redirect()->route('admin.merek')->withDanger('Merek berhasil dihapus');
+    }
+
+    public function jenis()
+    {
+        $jenis = Jenis::all();
+        return view('superAdmin.jenisMotor', compact('jenis'));
+    }
+    public function store5(Request $request)
+    {
+        $jenis = new Jenis();
+        $jenis->name = $request->name;
+        $jenis->save();
+
+        return redirect()->route('admin.jenis')->withInfo('Merek Ditambahkan');
+    }
+    public function editJenis(Jenis $jenis)
+    {
+        return view('superAdmin.editJenisMotor', compact('jenis'));
+    }
+    public function updateJenis(Request $request, Jenis $jenis)
+    {
+        $jenis->name = $request->name;
+        $jenis->update();
+
+        return redirect()->route('admin.jenis')->withInfo('Merek berhasil dirubah');
+    }
+    public function destroy5(Jenis $jenis)
+    {
+        $jenis->delete();
+        return redirect()->route('admin.jenis')->withDanger('Merek berhasil dihapus');
     }
 }

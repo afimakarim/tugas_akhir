@@ -11,30 +11,32 @@
                     </div>
                 <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-
+                    <form action="" enctype="multipart/form-data" method="post"id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                        {{ csrf_field() }}
+                        {{ method_field('POST') }}
                         <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="gambar_promo">Gambar Promo</label>
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="gambar_motor" >Gambar Motor</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="file" class="form-control-file" id="gambar_promo" name="gambar_promo" required oninvalid="this.setCustomValidity('Tidak Boleh Kosong')" oninput="setCustomValidity('')">
+                                <img src="{{ asset("storage/$promo->gambar") }}" alt="" class="" height="128">
+                                <input type="file" class="form-control" id="gambar_dealer" name="gambar" placeholder="Gambar Admin Dealer" value="">
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="tipe_motor" >Tipe Motor</label>
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="tipe_motor">Tipe Motor</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" class="form-control" id="tipe_motor" name="tipe_motor" placeholder="Tipe Motor" required oninvalid="this.setCustomValidity(' Tidak Boleh Kosong')" oninput="setCustomValidity('')">
+                                <input type="text" class="form-control" id="tipe_motor" name="tipe_motor" placeholder="Tipe Motor" value="">
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align"for="judul_promo">Judul Promo</label>
+                            <label class="col-form-label col-md-3 col-sm-3 label-align"for="">Judul Promo</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <textarea class="form-control"   id="judul_promo" name="judul_promo" placeholder="Judul Promo" rows="2" required oninvalid="this.setCustomValidity(' Tidak Boleh Kosong')" oninput="setCustomValidity('')"></textarea>
+                                <textarea id="" cols="30" rows="5" class="form-control" name="judul" placeholder="Judul Promo" ></textarea>
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align"for="ket_promo">Keterangan Promo</label>
+                            <label class="col-form-label col-md-3 col-sm-3 label-align"for="">Keterangan Promo</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <textarea class="form-control"  id="ket_promo" name="ket_promo"  placeholder="Keterangan Promo" rows="4" required oninvalid="this.setCustomValidity(' Tidak Boleh Kosong')" oninput="setCustomValidity('')"></textarea>
+                                <textarea id="" cols="30" rows="5" class="form-control" name="ket_promo" placeholder="Keterangan Promo" ></textarea>
                             </div>
                         </div>
                         <div class="ln_solid"></div>

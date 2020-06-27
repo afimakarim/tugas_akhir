@@ -21,6 +21,9 @@ class CreateDealersTable extends Migration
             $table->string('email',100)->unique();
             $table->string('password',100);
             $table->string('gambar')->nullable()->default(null);
+            $table->string('telephone')->nullable();
+            $table->string('ket_dealer')->nullable();
+            $table->string('alamat')->nullable();
             $table->rememberToken();
             $table->timestamps();
 

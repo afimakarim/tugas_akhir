@@ -64,7 +64,7 @@ Auth::routes();
 
 
     Route::get('/userAdminDealer','adminPusatController@userAdminDealer')->name('pusat.dealer');
-    Route::post('/userAdminPusat','adminPusatController@store3')->name('pusat.dealer.store3');
+    Route::post('/userAdminDealer','adminPusatController@store3')->name('pusat.dealer.store3');
     Route::get('/{dealer}/editUserAdminDealer','adminPusatController@editUserAdminDealer')->name('pusat.dealer.edit');
     Route::post('/{dealer}/editUserAdminDealer','adminPusatController@updateUserAdminDealer')->name('pusat.dealer.update');
     Route::get('/{dealer}/deleteUserAdminDealer','adminPusatController@destroy3')->name('pusat.dealer.delete');
@@ -85,10 +85,19 @@ Route::prefix('dealer')->group (function() {
     Route::post('/login', 'Auth\DealerLoginController@login')->name('dealer.login.submit');
     Route::get('/', 'adminDealerController@index')->name('dealer.dashboard');
     Route::get('/logout', 'Auth\DealerLoginController@logout')->name('dealer.logout');
-    Route::get('/promo','adminDealerController@promo')->name('dealer.promo');
-    Route::get('/editPromo','adminDealerController@editPromo')->name('dealer.promo.edit');
+
     Route::get('/profileDealer','adminDealerController@profileDealer')->name('dealer.profile');
-    Route::get('/editPofileDealer','adminDealerController@editProfileDealer')->name('dealer.profile.edit');
+    Route::get('/{dealer}/editPofileDealer','adminDealerController@editProfileDealer')->name('dealer.profile.edit');
+    Route::post('/editPofileDealer','adminDealerController@updateProfileDealer')->name('dealer.profile.update');
+
+    Route::get('/promo','adminDealerController@promo')->name('dealer.promo');
+    Route::post('/promo','adminDealerController@store7')->name('dealer.promo.store7');
+    Route::get('/{promo}/editPromo','adminDealerController@editPromo')->name('dealer.promo.edit');
+    Route::post('/{promo}/editPromo','adminDealerController@updatePromo')->name('dealer.promo.update');
+    Route::get('/{promo}/deletePromo','adminDealerController@destroy7')->name('dealer.promo.delete');
+
+
+
 
     // Password Reset routes
     Route::post('/password/email', 'Auth\DealerForgotPasswordController@sendResetLinkEmail')->name('dealer.password.email');

@@ -27,8 +27,7 @@ class adminPusatController extends Controller
     public function userAdminDealer()
     {
         $dealers = Dealer::where('user_id', auth()->user()->id)->get();
-//        $Users = User::all();
-        return view('adminPusat.userAdminDealer', compact(['dealers']));
+        return view('adminPusat.userAdminDealer', compact('dealers'));
     }
 
     public function store3(Request $request)
@@ -102,7 +101,8 @@ class adminPusatController extends Controller
 
     public function editDataMotor(Motor $motor)
     {
-        return view('adminPusat.editDataMotor', compact('motor'));
+        $jenis = Jenis::all();
+        return view('adminPusat.editDataMotor', compact('motor', 'jenis'));
     }
     public function updateDataMotor(Request $request, Motor $motor)
     {
@@ -110,7 +110,7 @@ class adminPusatController extends Controller
             Storage::delete($motor['gambar']);
             $motor->gambar = $request->file('gambar')->store('motor');
         }
-        $motor->jenis_motor = $request->jenis_motor;
+        $motor->jenis_id = $request->jenis_motor;
         $motor->tipe_motor = $request->tipe_motor;
         $motor->harga_motor = $request->harga_motor;
         $motor->bahan_bakar = $request->bahan_bakar;
@@ -120,6 +120,7 @@ class adminPusatController extends Controller
         $motor->kapasitas_mesin = $request->kapasitas_mesin;
         $motor->tenaga_maksimal = $request->tenaga_maksimal;
         $motor->jenis_transmisi = $request->jenis_transmisi;
+        $motor->merek_id = auth()->user()->merek_id;
         $motor->update();
         return redirect()->route('pusat.motor')->withInfo('Merek berhasil dirubah');
     }

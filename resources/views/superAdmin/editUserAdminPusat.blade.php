@@ -40,13 +40,13 @@
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align"for="username_pusat">Username</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input  class="form-control"  id="username_pusat" name="name" placeholder="Nama Admin Pusat"value="{{ $user->name }}">
+                                <input  class="form-control"  id="username_pusat" name="name" placeholder="Nama Admin Pusat"value="{{ $user->name }}" required>
                             </div>
                         </div>
                         <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="email_pusat">Email</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="email" class="form-control" id="email_pusat" name="email" placeholder="Email" value="{{ $user->email }}">
+                                <input type="email" class="form-control" id="email_pusat" name="email" placeholder="Email" value="{{ $user->email }}" required>
                             </div>
                         </div>
 

@@ -25,9 +25,15 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="jenis_motor">Jenis Motor</label>
                                 <div class="col-md-6 col-sm-6 ">
                                 <select class="form-control"  id="jenis_motor" name="jenis_motor" >
-                                    <option value="Skuter Matik" {{ ($motor->jenis_motor == 'Skuter Matik') ? 'selected' : "" }}>Skuter Matik</option>
-                                    <option value="Bebek" {{ ($motor->jenis_motor == 'Bebek') ? 'selected' : "" }}>Bebek</option>
-                                    <option value="Sport" {{ ($motor->jenis_motor == 'Sport') ? 'selected' : "" }}>Sport</option>
+                                    <option value="" >-- Pilih Jenis Motor --</option>
+                                    @foreach($jenis as $item)
+                                        <option value="{{ $item->id }}"
+                                        @if ($item ->id === $motor->jenis_id)
+                                        selected
+                                        @endif
+                                        >
+                                            {{ $item->name }}</option>
+                                    @endforeach
                                 </select>
                                 </div>
                         </div>

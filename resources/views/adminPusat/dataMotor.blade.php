@@ -33,13 +33,11 @@
                                 {{ csrf_field() }}
                                 <div class="form-group has-feedback{{ $errors->has('gambar') ? ' has-error' : '' }}">
                                     <label for="">Gambar Motor </label>
-                                    <input type="file" class="form-control" id="gambar_motor" name="gambar" required
-                                           oninvalid="this.setCustomValidity('Tidak Boleh Kosong')"
-                                           oninput="setCustomValidity('')">
+                                    <input type="file" class="form-control" id="gambar_motor" name="gambar" required>
                                     @if ($errors->has('gambar'))
-                                        <span class="help-block">
-                                <p> {{ $errors->first('gambar') }} </p>
-                            </span>
+                                    <span class="help-block">
+                                        <p> {{ $errors->first('gambar') }} </p>
+                                    </span>
                                     @endif
                                 </div>
                                 <div class="form-group">
@@ -54,9 +52,7 @@
                                 <div class="form-group has-feedback{{ $errors->has('tipe_motor') ? ' has-error' : '' }}">
                                     <label for="tipe_motor">Tipe Motor</label>
                                     <input type="text" class="form-control" id="tipe_motor" name="tipe_motor"
-                                           placeholder="Tipe Motor" required
-                                           oninvalid="this.setCustomValidity('Tidak Boleh Kosong')"
-                                           oninput="setCustomValidity('')">
+                                           placeholder="Tipe Motor" required>
                                     @if ($errors->has('tipe_motor'))
                                         <span class="help-block">
                                 <p> {{ $errors->first('tipe_motor') }} </p>
@@ -66,9 +62,7 @@
                                 <div class="form-group has-feedback{{ $errors->has('harga_motor') ? ' has-error' : '' }}">
                                     <label for="harga_motor">Harga Motor</label>
                                     <input type="text" class="form-control" id="harga_motor" name="harga_motor"
-                                           placeholder="Harga Motor" required
-                                           oninvalid="this.setCustomValidity('Tidak Boleh Kosong')"
-                                           oninput="setCustomValidity('')">
+                                           placeholder="Harga Motor" required>
                                     @if ($errors->has('harga_motor'))
                                         <span class="help-block">
                                 <p> {{ $errors->first('harga_motor') }} </p>
@@ -78,9 +72,7 @@
                                 <div class="form-group has-feedback{{ $errors->has('bahan_bakar') ? ' has-error' : '' }}">
                                     <label for="bahan_bakar">Jenis Bahan Bakar</label>
                                     <input type="text" class="form-control" id="bahan_bakar" name="bahan_bakar"
-                                           placeholder="Bahan Bakar" required
-                                           oninvalid="this.setCustomValidity(' Tidak Boleh Kosong')"
-                                           oninput="setCustomValidity('')">
+                                           placeholder="Bahan Bakar" required>
                                     @if ($errors->has('bahan_bakar'))
                                         <span class="help-block">
                                 <p> {{ $errors->first('bahan_bakar') }} </p>
@@ -90,9 +82,7 @@
                                 <div class="form-group has-feedback{{ $errors->has('ban_depan') ? ' has-error' : '' }}">
                                     <label for="ban_depan">Ban Depan</label>
                                     <input type="text" class="form-control" id="ban_depan" name="ban_depan"
-                                           placeholder="Ban Depan" required
-                                           oninvalid="this.setCustomValidity(' Tidak Boleh Kosong')"
-                                           oninput="setCustomValidity('')">
+                                           placeholder="Ban Depan" required>
                                     @if ($errors->has('ban_depan'))
                                         <span class="help-block">
                                 <p> {{ $errors->first('ban_depan') }} </p>
@@ -102,9 +92,7 @@
                                 <div class="form-group has-feedback{{ $errors->has('ban_belakang') ? ' has-error' : '' }}">
                                     <label for="ban_belakang">Ban Belakang</label>
                                     <input type="text" class="form-control" id="ban_belakang" name="ban_belakang"
-                                           placeholder="Ban Belakang" required
-                                           oninvalid="this.setCustomValidity(' Tidak Boleh Kosong')"
-                                           oninput="setCustomValidity('')">
+                                           placeholder="Ban Belakang" required>
                                     @if ($errors->has('ban_belakang'))
                                         <span class="help-block">
                                 <p> {{ $errors->first('ban_belakang') }} </p>
@@ -114,9 +102,7 @@
                                 <div class="form-group has-feedback{{ $errors->has('jenis_ban') ? ' has-error' : '' }}">
                                     <label for="jenis_ban">Jenis Ban</label>
                                     <input type="text" class="form-control" id="jenis_ban" name="jenis_ban"
-                                           placeholder="Jenis Ban" required
-                                           oninvalid="this.setCustomValidity(' Tidak Boleh Kosong')"
-                                           oninput="setCustomValidity('')">
+                                           placeholder="Jenis Ban" required>
                                     @if ($errors->has('jenis_ban'))
                                         <span class="help-block">
                                 <p> {{ $errors->first('jenis_ban') }} </p>
@@ -126,9 +112,7 @@
                                 <div class="form-group has-feedback{{ $errors->has('kapasitas_mesin') ? ' has-error' : '' }}">
                                     <label for="kapasitas_mesin">Kapasitas Mesin</label>
                                     <input type="text" class="form-control" id="kapasitas_mesin" name="kapasitas_mesin"
-                                           placeholder="Kapasitas Mesin" required
-                                           oninvalid="this.setCustomValidity('Tidak Boleh Kosong')"
-                                           oninput="setCustomValidity('')">
+                                           placeholder="Kapasitas Mesin" required>
                                     @if ($errors->has('kapasitas_mesin'))
                                         <span class="help-block">
                                 <p> {{ $errors->first('kapasitas_mesin') }} </p>
@@ -138,9 +122,7 @@
                                 <div class="form-group has-feedback{{ $errors->has('tenaga_maksimal') ? ' has-error' : '' }}">
                                     <label for="tenaga_maksimal">Tenaga Maksimal</label>
                                     <input type="text" class="form-control" id="tenaga_maksimal" name="tenaga_maksimal"
-                                           placeholder="Tenaga Maksimal" required
-                                           oninvalid="this.setCustomValidity('Tidak Boleh Kosong')"
-                                           oninput="setCustomValidity('')">
+                                           placeholder="Tenaga Maksimal" required>
                                     @if ($errors->has('tenaga_maksimal'))
                                         <span class="help-block">
                                 <p> {{ $errors->first('tenaga_maksimal') }} </p>
@@ -150,9 +132,7 @@
                                 <div class="form-group has-feedback{{ $errors->has('jenis_transmisi') ? ' has-error' : '' }}">
                                     <label for="jenis_transmisi">Jenis Trasnmisi</label>
                                     <input type="text" class="form-control" id="jenis_transmisi" name="jenis_transmisi"
-                                           placeholder="Jenis Transmisi" required
-                                           oninvalid="this.setCustomValidity('Tidak Boleh Kosong')"
-                                           oninput="setCustomValidity('')">
+                                           placeholder="Jenis Transmisi" required>
                                     @if ($errors->has('jenis_transmisi'))
                                         <span class="help-block">
                                 <p> {{ $errors->first('jenis_transmisi') }} </p>
@@ -186,7 +166,6 @@
                         <th scope="col">Kapasitas Mesin</th>
                         <th scope="col">Tenaga Maksimal</th>
                         <th scope="col">Jenis Transmisi</th>
-
                         <th scope="col"></th>
                     </tr>
                     </thead>

@@ -10,7 +10,7 @@
         <!-- menu profile quick info -->
         <div class="profile clearfix">
             <div class="profile_pic">
-            <img src="{{asset('img/dealerHonda2.jpg')}}" alt="..." class="img-circle profile_img">
+                <img src="{{ asset("storage/" . auth()->user()->gambar) }}" class="img-circle profile_img">
             </div>
             <div class="profile_info">
             <span>Dealer,</span>
@@ -25,7 +25,7 @@
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
             <ul class="nav side-menu">
-                <li><a href="{{ route('dealer.dashboard') }}"><i class="fa fa-home"></i> Home </a></li>
+{{--                <li><a href="{{ route('dealer.dashboard') }}"><i class="fa fa-home"></i> Home </a></li>--}}
                 <li><a href="{{ route('dealer.profile') }}"><i class="fa fa-user"></i> Profile Dealer </a></li>
                 <li><a href="{{ route('dealer.promo') }}"><i class="fa fa-shopping-bag"></i> Promo Dealer </a></li>
 
@@ -71,7 +71,7 @@
             <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                    <img src="{{asset('img/dealerHonda2.jpg')}}" alt=""> {{ auth()->user()->name }}
+                    <img src="{{ asset("storage/" . auth()->user()->gambar) }}" > {{ auth()->user()->name }}
                 </a>
                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item"  href="{{route('dealer.logout')}}"><i class="fa fa-sign-out pull-right"></i> Log Out</a>

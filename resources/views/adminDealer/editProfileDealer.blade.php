@@ -11,62 +11,59 @@
                     </div>
                 <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-
+                    <form action="{{ route('dealer.profile.update', $dealer) }}" enctype="multipart/form-data" method="post" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                        {{ csrf_field() }}
+                        {{ method_field('POST') }}
                         <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="gambar_profil">Gambar Dealer</label>
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="gambar_dealer">Gambar</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="file" class="form-control-file" id="gambar_profil" name="gambar_profil" required oninvalid="this.setCustomValidity('Tidak Boleh Kosong')" oninput="setCustomValidity('')">
-                            </div>
-                        </div>
-                        <!-- <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="username_dealer">Username</label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <input type="text" class="form-control" id="username_dealer" name="username_dealer" placeholder="Username Dealer" required oninvalid="this.setCustomValidity(' Tidak Boleh Kosong')" oninput="setCustomValidity('')">
-                            </div>
-                        </div> -->
-                        <!-- <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="dealer" >Dealer</label>
-                                <div class="col-md-6 col-sm-6 ">
-                                        <select class="form-control"  id="dealer" name="dealer">
-                                            <option>Honda</option>
-                                            <option>Yamaha</option>
-                                            <option>Suzuki</option>
-                                            <option>Kawasaki</option>
-                                        </select>
-                                </div>
-                        </div> -->
-                        <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="nama_dealer">Nama Dealer</label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <input type="text" class="form-control" id="nama_dealer" name="nama_dealer" placeholder="Nama Dealer" required oninvalid="this.setCustomValidity(' Tidak Boleh Kosong')" oninput="setCustomValidity('')">
+                                <img src="{{ asset("storage/$dealer->gambar") }}" alt="" class="" height="128">
+                                <input type="file" class="form-control" id="gambar_dealer" name="gambar" placeholder="Gambar Admin Dealer">
                             </div>
                         </div>
                         <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align"for="alamat_dealer">Alamat Dealer</label>
+                            <label class="col-form-label col-md-3 col-sm-3 label-align"for="username_dealer">Nama Admin Dealer</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <textarea class="form-control"  id="alamat_dealer" name="alamat_dealer" placeholder="Alamat Dealer" rows="3" required oninvalid="this.setCustomValidity(' Tidak Boleh Kosong')" oninput="setCustomValidity('')"></textarea>
+                                <input  class="form-control"  id="nama_dealer" name="name" placeholder="Nama Admin Dealer"value="{{ $dealer->name }}">
                             </div>
                         </div>
                         <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="no_telepone">No Telepone</label>
+                            <label class="col-form-label col-md-3 col-sm-3 label-align"for="email_dealer">Email</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" class="form-control" id="no_telepone" name="no_telepone" placeholder="No Telepone"required oninvalid="this.setCustomValidity(' Tidak Boleh Kosong')" oninput="setCustomValidity('')">
+                                <input type="email" class="form-control" id="email_dealer" name="email" placeholder="Email" value="{{ $dealer->email }}">
                             </div>
                         </div>
                         <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align"for="ket_Dealer">Keterangan Dealer</label>
+                            <label class="col-form-label col-md-3 col-sm-3 label-align"for="">Telephone</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <textarea class="form-control"  id="ket_dealer" name="ket_dealer"  placeholder="Keterangan Dealer" rows="3" required oninvalid="this.setCustomValidity(' Tidak Boleh Kosong')" oninput="setCustomValidity('')"></textarea>
+                                <input  class="form-control"  id="" name="telephone" placeholder="Telephone" value="{{ $dealer->telephone }}">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align"for="">Alamat Dealer</label>
+                            <div class="col-md-6 col-sm-6 ">
+                                <textarea id="" cols="30" rows="5" class="form-control" name="alamat" placeholder="Alamat Dealer" >{{ $dealer->alamat }}</textarea>
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align"for="">Keterangan Dealer</label>
+                            <div class="col-md-6 col-sm-6 ">
+                                <textarea id="" cols="30" rows="5" class="form-control" name="ket_dealer" placeholder="Keterangan Dealer" >{{ $dealer->ket_dealer }}</textarea>
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align"for="password_dealer">Password Dealer</label>
+                            <div class="col-md-6 col-sm-6 ">
+                                <input type="password" class="form-control"  id="password_pusat" name="password" data-toggle="password" placeholder="Password"  value="">
                             </div>
                         </div>
                         <div class="ln_solid"></div>
-                            <div class="item form-group">
-                                <div class="col-md-6 col-sm-6 offset-md-3">
-                                    <a href="#"><button class="btn btn-primary" type="button">Simpan</button></a>
-                                    <a href="{{ route('dealer.profile') }}"><button class="btn btn-danger" type="button">Kembali</button></a>
-                                </div>
+                        <div class="item form-group">
+                            <div class="col-md-6 col-sm-6 offset-md-3">
+                                <a href="#"><button class="btn btn-primary" type="submit">Simpan</button></a>
+                                <a href="{{route('dealer.profile')}}"><button class="btn btn-danger" type="button">Kembali</button></a>
                             </div>
+                        </div>
                     </form>
                 </div>
                 </div>

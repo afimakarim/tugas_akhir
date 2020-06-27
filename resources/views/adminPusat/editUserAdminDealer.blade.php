@@ -18,13 +18,13 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="gambar_dealer">Gambar</label>
                             <div class="col-md-6 col-sm-6 ">
                                 <img src="{{ asset("storage/$dealer->gambar") }}" alt="" class="" height="128">
-                                <input type="file" class="form-control" id="gambar_pusat" name="gambar" placeholder="Gambar Admin Dealer" value="{{ $dealer->gambar }}">
+                                <input type="file" class="form-control" id="gambar_dealer" name="gambar" placeholder="Gambar Admin Dealer" value="{{ $dealer->gambar }}">
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align"for="username_dealer">Username</label>
+                            <label class="col-form-label col-md-3 col-sm-3 label-align"for="username_dealer">Nama Admin Dealer</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input  class="form-control"  id="username_dealer" name="name" placeholder="Nama Admin Dealer"value="{{ $dealer->name }}">
+                                <input  class="form-control"  id="nama_dealer" name="name" placeholder="Nama Admin Dealer"value="{{ $dealer->name }}">
                             </div>
                         </div>
                         <div class="item form-group">

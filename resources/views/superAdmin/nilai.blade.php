@@ -5,7 +5,7 @@
         <div class="page-title">
             <div class="title_left">
                 @include('layouts.partials._alerts')
-                <h3>Jenis Sepeda Motor </h3>
+                <h3>Data Nilai Preferensi</h3>
             </div>
             <br>
             <br>
@@ -21,19 +21,34 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Tambah Jenis Motor</h5>
+                            <h5 class="modal-title" id="staticBackdropLabel">Tambah Data Nilai Preferensi</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{ route('admin.jenis.store5') }}" method="post" enctype="multipart/form-data">
+                            <form action="" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
 
-                                <div class="form-group ">
-                                    <label for="name">Jenis Motor</label>
+                                <div class="form-group has-feedback{{ $errors->has('name') ? ' has-error' : '' }}">
+                                    <label for="name">Keterangan Nilai</label>
                                     <input type="text" class="form-control" id="" name="name"
-                                           placeholder="Jenis Motor" required>
+                                           placeholder="Keterangan Nilai" required>
+                                    @if ($errors->has('name'))
+                                        <span class="help-block">
+                                            <p> {{ $errors->first('name') }} </p>
+                                        </span>
+                                    @endif
+                                </div>
+                                <div class="form-group has-feedback{{ $errors->has('nilai') ? ' has-error' : '' }}">
+                                    <label for="name">Nilai</label>
+                                    <input type="text" class="form-control" id="" name="nilai"
+                                           placeholder="Nilai" required>
+                                    @if ($errors->has('nilai'))
+                                        <span class="help-block">
+                                            <p> {{ $errors->first('nilai') }} </p>
+                                        </span>
+                                    @endif
                                 </div>
 
                                 <div class="modal-footer">
@@ -55,29 +70,33 @@
 
                 <thead>
                 <tr style="background-color: Gainsboro;">
-                    <th scope="col">Jenis Motor</th>
+                    <th scope="col">Keterangan Nilai</th>
+                    <th scope="col">Nilai</th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($jenis as $jenis)
+{{--                @foreach($jenis as $jenis)--}}
                     <tr>
                         <td>
-                            {{ $jenis->name }}
                         </td>
-                        <td><a href="{{ route('admin.jenis.edit', $jenis) }}"
+
+                        <td>
+                        </td>
+
+                        <td><a href="{{ route('admin.nilai.edit') }}"
                                onclick="return confirm('Yakin Anda ingin menngedit Data ini ?')"><i class='fa fa-edit'
                                                                                                     style='font-size:25px;color:blue'
                                                                                                     alt="logo"
                                                                                                     title="Edit"></i>
                             </a>
-                            <a href="{{ route('admin.jenis.delete', $jenis) }}"
+                            <a href=""
                                onclick="return confirm('Yakin Anda ingin menghapus Data ini ?')"><i class='fa fa-trash'
                                                                                                     style='font-size:25px;color:red'
                                                                                                     title="Hapus"> </i></a>
                         </td>
                     </tr>
-                @endforeach
+{{--                @endforeach--}}
                 </tbody>
             </table>
             <!--End Tabel-->

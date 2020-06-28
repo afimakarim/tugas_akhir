@@ -167,4 +167,95 @@ class superAdminController extends Controller
         $jenis->delete();
         return redirect()->route('admin.jenis')->withDanger('Merek berhasil dihapus');
     }
+
+    public function nilai()
+    {
+        return view('superAdmin.nilai');
+    }
+    public  function store8()
+    {
+
+    }
+    public  function editNilai()
+    {
+        return view('superAdmin.editNilai');
+    }
+    public function updateNilai()
+    {
+
+    }
+    public function destroy8()
+    {
+
+    }
+
+
+    public function kriteria()
+    {
+        return view('superAdmin.kriteria');
+    }
+    public  function store9()
+    {
+
+    }
+    public  function editKriteria()
+    {
+        return view('superAdmin.editKriteria');
+    }
+    public function updateKriteria()
+    {
+
+    }
+    public function destroy9()
+    {
+
+    }
+
+    public function alternatif()
+    {
+        return view('superAdmin.alternatif');
+    }
+    public  function stor10()
+    {
+
+    }
+
+    public function bobot()
+    {
+        return view('superAdmin.bobot');
+    }
+    public  function store11()
+    {
+
+    }
+    public  function editBobot()
+    {
+        return view('superAdmin.editBobot');
+    }
+    public function updateBobot()
+    {
+
+    }
+    public function destroy11()
+    {
+
+    }
+
+    public function perangkingan()
+    {
+        return view('superAdmin.perangkingan');
+    }
+    public  function stor12()
+    {
+
+    }
+
+    public function pengunjung()
+    {
+        return view('superAdmin.pengunjung');
+    }
+    public  function stor13()
+    {
+
+    }
 }

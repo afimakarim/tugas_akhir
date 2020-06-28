@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Dealer;
+use App\Promo;
+use App\Motor;
 use Storage;
 use Illuminate\Http\Request;
 
@@ -45,7 +47,6 @@ class adminDealerController extends Controller
         $dealer->telephone = $request->telephone;
         $dealer->alamat = $request->alamat;
         $dealer->ket_dealer = $request->ket_dealer;
-        $dealer->user_id = auth()->user()->id;
 //        dd($dealer);
         $dealer->update();
 
@@ -55,22 +56,43 @@ class adminDealerController extends Controller
 
     public function promo()
     {
-        return view('adminDealer.promo');
+        $motors = Motor::all();
+        $promos = Promo::where('dealer_id', auth()->user()->id)->get();
+        return view('adminDealer.promo', compact(['motors', 'promos']));
     }
-    public function store7()
+    public function store7(Request $request)
     {
+        $promo = new Promo();
+        $promo->gambar = $request->file('gambar')->store('promo');
+        $promo->judul = $request->judul;
+        $promo->ket_promo = $request->ket_promo;
+        $promo->motor_id = $request->tipe_motor;
+        $promo->dealer_id = auth()->user()->id;
+        $promo->save();
 
+        return redirect()->route('dealer.promo')->withInfo('Merek Ditambahkan');
     }
-    public function editPromo()
+    public function editPromo(Promo $promo)
     {
-        return view('adminDealer.editPromo');
+        $motors = Motor::all();
+        return view('adminDealer.editPromo', compact('motors', 'promo'));
     }
-    public function updatePromo()
+    public function updatePromo(Request $request, Promo $promo)
     {
-
+        if ($request['gambar']) {
+            Storage::delete($promo['gambar']);
+            $promo->gambar = $request->file('gambar')->store('promo');
+        }
+        $promo->judul = $request->judul;
+        $promo->ket_promo = $request->ket_promo;
+        $promo->motor_id = $request->tipe_motor;
+        $promo->dealer_id = auth()->user()->id;
+        $promo->update();
+        return redirect()->route('dealer.promo')->withInfo('Merek berhasil dirubah');
     }
-    public function destroy7()
+    public function destroy7(Promo $promo)
     {
-
+        $promo->delete();
+        return redirect()->route('dealer.promo')->withDanger('Merek berhasil dihapus');
     }
 }

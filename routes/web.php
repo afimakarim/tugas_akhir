@@ -47,6 +47,32 @@ Auth::routes();
      Route::post('/{jenis}/editJenis', 'superAdminController@updateJenis')->name('admin.jenis.update');
      Route::get('/{jenis}/deleteJenis', 'superAdminController@destroy5')->name('admin.jenis.delete');
 
+     Route::get('/nilai','superAdminController@nilai')->name('admin.nilai');
+     Route::post('/nilai', 'superAdminController@store8')->name('admin.nilai.store8');
+     Route::get('/editnilai','superAdminController@editNilai')->name('admin.nilai.edit');
+     Route::post('/{nilai}/editNilai', 'superAdminController@updateJenis')->name('admin.nilai.update');
+     Route::get('/{nilai}/deleteNilai', 'superAdminController@destroy8')->name('admin.nilai.delete');
+
+     Route::get('/kriteria','superAdminController@kriteria')->name('admin.kriteria');
+     Route::post('/kriteria', 'superAdminController@store9')->name('admin.kriteria.store9');
+     Route::get('/editkriteria','superAdminController@editKriteria')->name('admin.kriteria.edit');
+     Route::post('/{kriteria}/editKriteria', 'superAdminController@updateKriteria')->name('admin.kriteria.update');
+     Route::get('/{kriteria}/deleteKriteria', 'superAdminController@destroy8')->name('admin.kriteria.delete');
+
+     Route::get('/alternatif','superAdminController@alternatif')->name('admin.alternatif');
+     Route::post('/alternatif', 'superAdminController@store10')->name('admin.kriteria.store10');
+
+     Route::get('/bobot','superAdminController@bobot')->name('admin.bobot');
+     Route::post('/bobot', 'superAdminController@store11')->name('admin.bobot.store11');
+     Route::get('/editBobot','superAdminController@editBobot')->name('admin.bobot.edit');
+     Route::post('/{bobot}/editBobot', 'superAdminController@updateBobot')->name('admin.bobot.update');
+     Route::get('/{bobot}/deleteBobot', 'superAdminController@destroy11')->name('admin.bobot.delete');
+
+     Route::get('/perangkingan','superAdminController@perangkingan')->name('admin.perangkingan');
+     Route::post('/perangkingan', 'superAdminController@store12')->name('admin.perangkingan.store12');
+
+     Route::get('/pengunjung','superAdminController@pengunjung')->name('admin.pengunjung');
+     Route::post('/pengunjung', 'superAdminController@store13')->name('admin.pengunjung.store13');
 
      // Password Reset routes
      Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
@@ -88,7 +114,7 @@ Route::prefix('dealer')->group (function() {
 
     Route::get('/profileDealer','adminDealerController@profileDealer')->name('dealer.profile');
     Route::get('/{dealer}/editPofileDealer','adminDealerController@editProfileDealer')->name('dealer.profile.edit');
-    Route::post('/editPofileDealer','adminDealerController@updateProfileDealer')->name('dealer.profile.update');
+    Route::post('/{dealer}/editPofileDealer','adminDealerController@updateProfileDealer')->name('dealer.profile.update');
 
     Route::get('/promo','adminDealerController@promo')->name('dealer.promo');
     Route::post('/promo','adminDealerController@store7')->name('dealer.promo.store7');

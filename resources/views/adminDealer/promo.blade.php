@@ -28,11 +28,12 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="" method="post"
+                            <form action="{{route('dealer.promo.store7')}}" method="post"
                                   enctype="multipart/form-data">
+                                {{ csrf_field() }}
                                 <div class="form-group has-feedback{{ $errors->has('gambar') ? ' has-error' : '' }}">
                                     <label for="gambar_promo">Gambar Promo </label>
-                                    <input type="file" class="form-control-file" id="gambar_promo" name="gambar"
+                                    <input type="file" class="form-control" id="gambar_promo" name="gambar"
                                            required>
                                     @if ($errors->has('gambar'))
                                         <span class="help-block">
@@ -42,11 +43,11 @@
                                 </div>
                                 <div class="form-group has-feedback{{ $errors->has('tipe_motor') ? ' has-error' : '' }}">
                                     <label for="tipe_motor">Tipe Motor</label>
-                                    <select class="form-control" id="" name="tipe_id">
+                                    <select class="form-control" id="" name="tipe_motor">
                                         <option value="" selected>-- Pilih Tipe Motor --</option>
-{{--                                        @foreach($motors as $motor)--}}
-{{--                                            <option value="{{ $motor->id }}">{{ $motor->tipe_motor }}</option>--}}
-{{--                                        @endforeach--}}
+                                        @foreach($motors as $motor)
+                                            <option value="{{ $motor->id }}">{{ $motor->tipe_motor }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group has-feedback{{ $errors->has('judul') ? ' has-error' : '' }}">
@@ -80,7 +81,8 @@
 
 
             <!--Tabel -->
-            <table id="myTable" class="table table-bordered text-center">
+            <div class="table-responsive">
+            <table id="myTable" class="table table-bordered text-center table-sm">
                 <thead>
                 <tr style="background-color: Gainsboro;">
                     <th scope="col">Gambar Promo</th>
@@ -91,30 +93,30 @@
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($promos as $promo)
                 <tr>
-                    <td><img src="{{asset('img/Promo.jpg')}}" style="width:80px;height:60px;"></td>
-                    <td style="text-align:left;">Beat Street</td>
-                    <td style="text-align:left;">Hujan Promo Awal Tahun 2020 Naga Mas Tegal</td>
-                    <td style="text-align:left;">
-                        Dapatkan All New Honda Beat mu Sekarang juga, cukup dengan uang muka 600rb Rupiah
-                        dengan angsuran 667rb setiap bulannya ! Kapan lagi nih bisa bawa pulang motor baru dengan uang
-                        muka yang sangat ringan.
-                        Untuk harga pada brosur, masih bisa di nego/mendapat potongan harga. Untuk mendapat potongan
-                        harga terbaru silakan hubungi kami di nomor berikut
-                        Anisa 085615236772
-                        Dealer Naga Mas Motor Tegal
-                        jl. AR. Hakim no.24, Randugunting, Tegal Barat, Kota Tegal
+                    <td>
+                        <img src="{{ asset("storage/$promo->gambar") }}" style="height: 100px; width: auto"
+                             alt="">
                     </td>
-                    <td><a href=""><i class='fa fa-edit'
-                                                                      style='font-size:25px;color:blue' alt="logo"
-                                                                      title="Edit"
-                                                                      onclick="return confirm('Yakin Anda ingin mengedit Data ini ?')"></i>
-                        </a> <a href=""><i class='fa fa-trash' style='font-size:25px;color:red' title="Hapus"
-                                           onclick="return confirm('Yakin Anda ingin menghapus Data ini ?')"></a></i>
+                    <td>{{$promo->motor->tipe_motor}}</td>
+                    <td style="text-align:left;">{{$promo->judul}}</td>
+                    <td style="text-align:left;">{{$promo->ket_promo}}</td>
+                    <td>
+                        <a href="{{ route('dealer.promo.edit', $promo) }}"
+                           onclick="return confirm('Yakin Anda ingin mengedit Data ini ?')">
+                            <i class='fa fa-edit' style='font-size:25px;color:blue' alt="logo" title="Edit"></i>
+                        </a>
+                        <a href="{{ route('dealer.promo.delete', $promo) }}"
+                           onclick="return confirm('Yakin Anda ingin menghapus Data ini ?')">
+                            <i class='fa fa-trash' style='font-size:25px;color:red' title="Hapus"></i>
+                        </a>
                     </td>
                 </tr>
+                    @endforeach
                 </tbody>
             </table>
+            </div>
             <!--End Tabel-->
 
         </div>

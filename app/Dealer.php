@@ -22,7 +22,7 @@ class Dealer extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',  'gambar', 'user_id'
+        'name', 'email', 'password',  'gambar', 'user_id', 'telephone', 'ket_dealer', 'alamat'
     ];
 
     /**

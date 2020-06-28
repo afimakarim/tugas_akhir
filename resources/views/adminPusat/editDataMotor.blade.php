@@ -40,55 +40,55 @@
                         <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="tipe_motor">Tipe Motor</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" class="form-control" id="tipe_motor" name="tipe_motor" placeholder="Tipe Motor" value="{{ $motor->tipe_motor }}">
+                                <input type="text" class="form-control" id="tipe_motor" name="tipe_motor" placeholder="Tipe Motor" value="{{ $motor->tipe_motor }}" required>
                             </div>
                         </div>
                         <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="harga_motor">Harga Motor</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" class="form-control" id="harga_motor" name="harga_motor" placeholder="Harga Motor" value="{{ $motor->harga_motor }}">
+                                <input type="text" class="form-control" id="harga_motor" name="harga_motor" placeholder="Harga Motor" value="{{ $motor->harga_motor }}" required>
                             </div>
                         </div>
                         <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="bahan_bakar">Bahan Bakar</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" class="form-control" id="bahan_bakar" name="bahan_bakar" placeholder="Bahan Bakar" value="{{ $motor->bahan_bakar }}">
+                                <input type="text" class="form-control" id="bahan_bakar" name="bahan_bakar" placeholder="Bahan Bakar" value="{{ $motor->bahan_bakar }}" required>
                             </div>
                         </div>
                         <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="ban_depan">Ban Depan</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" class="form-control" id="ban_depan" name="ban_depan" placeholder="Ban Depan" value="{{ $motor->ban_depan }}">
+                                <input type="text" class="form-control" id="ban_depan" name="ban_depan" placeholder="Ban Depan" value="{{ $motor->ban_depan }}" required>
                             </div>
                         </div>
                         <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="ban_belakang">Ban Belakang</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" class="form-control" id="ban_belakang" name="ban_belakang" placeholder="Ban Depan" value="{{ $motor->ban_belakang }}">
+                                <input type="text" class="form-control" id="ban_belakang" name="ban_belakang" placeholder="Ban Depan" value="{{ $motor->ban_belakang }}" required>
                             </div>
                         </div>
                         <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="jenis_ban">Jenis Ban</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" class="form-control" id="jenis_ban" name="jenis_ban" placeholder="Jenis Ban" value="{{ $motor->jenis_ban }}">
+                                <input type="text" class="form-control" id="jenis_ban" name="jenis_ban" placeholder="Jenis Ban" value="{{ $motor->jenis_ban }}" required>
                             </div>
                         </div>
                         <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="kapasitas_mesin">Kapasitas Mesin</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" class="form-control" id="kapasitas_mesin" name="kapasitas_mesin" placeholder="Kapasitas Mesin" value="{{ $motor->kapasitas_mesin}}">
+                                <input type="text" class="form-control" id="kapasitas_mesin" name="kapasitas_mesin" placeholder="Kapasitas Mesin" value="{{ $motor->kapasitas_mesin}}" required>
                             </div>
                         </div>
                         <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="tenaga_maksimal">Tenaga Maksimal</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" class="form-control" id="tenaga_maksimal" name="tenaga_maksimal" placeholder="Tenaga Maksimal" value="{{ $motor->tenaga_maksimal }}">
+                                <input type="text" class="form-control" id="tenaga_maksimal" name="tenaga_maksimal" placeholder="Tenaga Maksimal" value="{{ $motor->tenaga_maksimal }}" required>
                             </div>
                         </div>
                         <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="jenis_transmisi">Jenis Transmisi</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" class="form-control" name="jenis_transmisi" placeholder="Jenis Transmisi" value="{{ $motor->jenis_transmisi }}">
+                                <input type="text" class="form-control" name="jenis_transmisi" placeholder="Jenis Transmisi" value="{{ $motor->jenis_transmisi }}" required>
                             </div>
                         </div>
                         <div class="ln_solid"></div>

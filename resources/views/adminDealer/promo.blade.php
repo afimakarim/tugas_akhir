@@ -31,17 +31,11 @@
                             <form action="{{route('dealer.promo.store7')}}" method="post"
                                   enctype="multipart/form-data">
                                 {{ csrf_field() }}
-                                <div class="form-group has-feedback{{ $errors->has('gambar') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="gambar_promo">Gambar Promo </label>
-                                    <input type="file" class="form-control" id="gambar_promo" name="gambar"
-                                           required>
-                                    @if ($errors->has('gambar'))
-                                        <span class="help-block">
-                                        <p> {{ $errors->first('gambar') }} </p>
-                                    </span>
-                                    @endif
+                                    <input type="file" class="form-control" id="gambar_promo" name="gambar" required>
                                 </div>
-                                <div class="form-group has-feedback{{ $errors->has('tipe_motor') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="tipe_motor">Tipe Motor</label>
                                     <select class="form-control" id="" name="tipe_motor">
                                         <option value="" selected>-- Pilih Tipe Motor --</option>
@@ -50,23 +44,15 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="form-group has-feedback{{ $errors->has('judul') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="judul_promo">Judul Promo</label>
                                     <textarea id="" cols="30" rows="5" class="form-control" name="judul" placeholder="Judul Promo" required></textarea>
-                                    @if ($errors->has('judul'))
-                                        <span class="help-block">
-                                            <p> {{ $errors->first('judul') }} </p>
-                                        </span>
-                                    @endif
+
                                 </div>
-                                <div class="form-group has-feedback{{ $errors->has('ket_promo') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="keterangan_promo">Keterangan Promo</label>
                                     <textarea id="" cols="30" rows="5" class="form-control" name="ket_promo" placeholder="Keterangan Promo" required></textarea>
-                                    @if ($errors->has('ket_promo'))
-                                        <span class="help-block">
-                                            <p> {{ $errors->first('ket_promo') }} </p>
-                                        </span>
-                                    @endif
+
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>

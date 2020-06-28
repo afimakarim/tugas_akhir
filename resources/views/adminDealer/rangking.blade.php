@@ -1,18 +1,18 @@
-@extends('templateSuperAdmin')
+@extends('templateAdminDealer')
 @section('main')
 
     <div class="right_col" role="main">
         <div class="page-title">
             <div class="title_left">
                 @include('layouts.partials._alerts')
-                <h3>Data Kriteria</h3>
+                <h3>Data Rangking Alternatif </h3>
             </div>
             <br>
             <br>
             <!-- Button trigger modal -->
-{{--            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop"--}}
-{{--                    title="Tambah" style="float : right"><span class="fa fa-plus"></span> Tambah Data--}}
-{{--            </button>--}}
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop"
+                    title="Tambah" style="float : right"><span class="fa fa-plus"></span> Tambah Data
+            </button>
             <!-- End Button trigger modal -->
 
             <!-- Modal -->
@@ -21,7 +21,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Tambah Data Kriteria</h5>
+                            <h5 class="modal-title" id="staticBackdropLabel">Tambah Data Alternatif</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -29,25 +29,32 @@
                         <div class="modal-body">
                             <form action="" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
-                                <div class="form-group ">
-                                    <label for="nama_alt">Nama Alternatif</label>
-                                    <select class="form-control" id="nama_alt" name="nama_alt">
-                                        <option value="" selected>-- Pilih Nama Alternatif --</option>
+
+                                <div class="form-group">
+                                    <label for="tipe_id">Tipe Motor</label>
+                                    <select class="form-control" id="tipe_id" name="tipe_id">
+                                        <option value="" selected>-- Pilih Tipe Motor --</option>
                                         {{--                                        @foreach($jenis as $item)--}}
                                         <option value=""></option>
                                         {{--                                        @endforeach--}}
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="">Vektor S</label>
-                                    <input type="text" class="form-control" id="" name="vektor_s"
-                                           placeholder="Vektor S" required>
 
-                                </div>
                                 <div class="form-group">
-                                    <label for="">Vektor V</label>
-                                    <input type="text" class="form-control" id="" name="vektor_v"
-                                           placeholder="Vektor V" required>
+                                    <label for="kriteria_id">Merek Motor</label>
+                                    <select class="form-control" id="kriteria_id" name="kriteria_id">
+                                        <option value="" selected>-- Pilih Kriteria --</option>
+                                        {{--                                        @foreach($jenis as $item)--}}
+                                        <option value=""></option>
+                                        {{--                                        @endforeach--}}
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="name">Nilai</label>
+                                    <input type="text" class="form-control" id="" name="nilai"
+                                           placeholder="Nilai" required>
+
                                 </div>
 
                                 <div class="modal-footer">
@@ -69,9 +76,10 @@
 
                 <thead>
                 <tr style="background-color: Gainsboro;">
-                    <th scope="col">Nama Alternatif</th>
-                    <th scope="col">Vektor S</th>
-                    <th scope="col">Vektor V</th>
+                    <th scope="col">Tipe Motor</th>
+                    <th scope="col">Kriteria</th>
+                    <th scope="col">Nilai</th>
+                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -84,6 +92,18 @@
                     </td>
 
                     <td>
+                    </td>
+
+                    <td><a href="{{ route('dealer.rangking.edit') }}"
+                           onclick="return confirm('Yakin Anda ingin menngedit Data ini ?')"><i class='fa fa-edit'
+                                                                                                style='font-size:25px;color:blue'
+                                                                                                alt="logo"
+                                                                                                title="Edit"></i>
+                        </a>
+                        <a href=""
+                           onclick="return confirm('Yakin Anda ingin menghapus Data ini ?')"><i class='fa fa-trash'
+                                                                                                style='font-size:25px;color:red'
+                                                                                                title="Hapus"> </i></a>
                     </td>
                 </tr>
                 {{--                @endforeach--}}

@@ -23,6 +23,8 @@ class adminDealerController extends Controller
     {
         return view('adminDealer.homeAdminDealer');
     }
+
+    //profile dealer
     public function profileDealer()
     {
         $dealer = Dealer::where('user_id', auth()->user()->id)->first();
@@ -53,7 +55,7 @@ class adminDealerController extends Controller
         return redirect()->route('dealer.profile')->withInfo('Merek berhasil dirubah');
     }
 
-
+    //promo dealer
     public function promo()
     {
         $motors = Motor::all();
@@ -94,5 +96,27 @@ class adminDealerController extends Controller
     {
         $promo->delete();
         return redirect()->route('dealer.promo')->withDanger('Merek berhasil dihapus');
+    }
+
+    //rangking alternatif
+    public function rangking()
+    {
+        return view('adminDealer.rangking');
+    }
+    public  function store14()
+    {
+
+    }
+    public  function editRangking()
+    {
+        return view('adminDealer.editRangking');
+    }
+    public function updateRangking()
+    {
+
+    }
+    public function destroy14()
+    {
+
     }
 }

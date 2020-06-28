@@ -29,7 +29,7 @@
                         <div class="modal-body">
                             <form action="" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
-                                <div class="form-group has-feedback{{ $errors->has('nama_alt') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="nama_alt">Nama Alternatif</label>
                                     <select class="form-control" id="nama_alt" name="nama_alt">
                                         <option value="" selected>-- Pilih Nama Alternatif --</option>
@@ -38,25 +38,17 @@
                                         {{--                                        @endforeach--}}
                                     </select>
                                 </div>
-                                <div class="form-group has-feedback{{ $errors->has('vektor_s') ? ' has-error' : '' }}">
+
+                                <div class="form-group">
                                     <label for="">Vektor S</label>
                                     <input type="text" class="form-control" id="" name="vektor_s"
                                            placeholder="Vektor S" required>
-                                    @if ($errors->has('vektor_s'))
-                                        <span class="help-block">
-                                            <p> {{ $errors->first('vektor_s') }} </p>
-                                        </span>
-                                    @endif
                                 </div>
-                                <div class="form-group has-feedback{{ $errors->has('vektor_v') ? ' has-error' : '' }}">
+
+                                <div class="form-group">
                                     <label for="">Vektor V</label>
                                     <input type="text" class="form-control" id="" name="vektor_v"
                                            placeholder="Vektor V" required>
-                                    @if ($errors->has('vektor_v'))
-                                        <span class="help-block">
-                                            <p> {{ $errors->first('vektor_v') }} </p>
-                                        </span>
-                                    @endif
                                 </div>
 
                                 <div class="modal-footer">

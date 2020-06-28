@@ -30,15 +30,10 @@
                             <form action="" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
 
-                                <div class="form-group has-feedback{{ $errors->has('name') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="name">Nama Kriteria</label>
                                     <input type="text" class="form-control" id="" name="name"
                                            placeholder="Nama Kriteria" required>
-                                    @if ($errors->has('name'))
-                                        <span class="help-block">
-                                            <p> {{ $errors->first('name') }} </p>
-                                        </span>
-                                    @endif
                                 </div>
                                 <div class="form-group has-feedback{{ $errors->has('nilai') ? ' has-error' : '' }}">
                                     <label for="tipe_kriteria">Tipe Kriteria</label>

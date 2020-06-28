@@ -24,6 +24,7 @@ class adminPusatController extends Controller
         return view('adminPusat.homeAdminPusat');
     }
 
+    //user admin dealer
     public function userAdminDealer()
     {
         $dealers = Dealer::where('user_id', auth()->user()->id)->get();
@@ -71,7 +72,7 @@ class adminPusatController extends Controller
     }
 
 
-
+    //data motor
     public function dataMotor()
     {
         $motors = Motor::where('merek_id', auth()->user()->merek_id)->get();

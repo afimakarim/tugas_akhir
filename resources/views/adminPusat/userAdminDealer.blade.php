@@ -32,47 +32,31 @@
                                   enctype="multipart/form-data">
                                 {{ csrf_field() }}
 
-                                <div class="form-group has-feedback{{ $errors->has('gambar') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="">Gambar</label>
                                     <input type="file" class="form-control" id="gambar_dealer" name="gambar"
                                            placeholder="gambar" required>
-                                    @if ($errors->has('gambar'))
-                                        <span class="help-block">
-                                            <p> {{ $errors->first('gambar') }} </p>
-                                        </span>
-                                    @endif
+
                                 </div>
-                                <div class="form-group has-feedback{{ $errors->has('name') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="">Username</label>
                                     <input type="text" class="form-control" id="username_dealer" name="name"
                                            placeholder="Nama Admin Dealer" required>
-                                    @if ($errors->has('name'))
-                                        <span class="help-block">
-                                            <p> {{ $errors->first('name') }} </p>
-                                        </span>
-                                    @endif
+
                                 </div>
 
-                                <div class="form-group has-feedback{{ $errors->has('email') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="email_dealer">Email </label>
                                     <input type="email" class="form-control" id="email_dealer" name="email"
                                            placeholder="Email" required>
-                                    @if ($errors->has('email'))
-                                        <span class="help-block">
-                                            <p> {{ $errors->first('email') }} </p>
-                                        </span>
-                                    @endif
+
                                 </div>
-                                <div class="form-group has-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="">Password Dealer</label>
                                     <input type="password" class="form-control" id="" name="password"
                                            data-toggle="password"
                                            placeholder="Password" required>
-                                    @if ($errors->has('password'))
-                                        <span class="help-block">
-                                            <p> {{ $errors->first('password') }} </p>
-                                        </span>
-                                    @endif
+
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>

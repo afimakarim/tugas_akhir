@@ -30,25 +30,15 @@
                             <form action="" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
 
-                                <div class="form-group has-feedback{{ $errors->has('name') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="name">Keterangan Nilai</label>
                                     <input type="text" class="form-control" id="" name="name"
                                            placeholder="Keterangan Nilai" required>
-                                    @if ($errors->has('name'))
-                                        <span class="help-block">
-                                            <p> {{ $errors->first('name') }} </p>
-                                        </span>
-                                    @endif
                                 </div>
-                                <div class="form-group has-feedback{{ $errors->has('nilai') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="name">Nilai</label>
                                     <input type="text" class="form-control" id="" name="nilai"
                                            placeholder="Nilai" required>
-                                    @if ($errors->has('nilai'))
-                                        <span class="help-block">
-                                            <p> {{ $errors->first('nilai') }} </p>
-                                        </span>
-                                    @endif
                                 </div>
 
                                 <div class="modal-footer">

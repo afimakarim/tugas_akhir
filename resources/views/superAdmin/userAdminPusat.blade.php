@@ -32,16 +32,10 @@
                                   enctype="multipart/form-data">
                                 {{ csrf_field() }}
 
-                                <div class="form-group has-feedback{{ $errors->has('gambar') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="">Gambar</label>
-                                    {{--                                    <input type="file" class="form-control-file" id="gambar_merek" name="gambar_merek">--}}
                                     <input type="file" class="form-control" id="gambar_merek" name="gambar"
                                            placeholder="gambar" required>
-                                    @if ($errors->has('gambar'))
-                                        <span class="help-block">
-                                            <p> {{ $errors->first('gambar') }} </p>
-                                        </span>
-                                    @endif
                                 </div>
                                 <div class="form-group">
                                     <label for="merek">Merek Motor</label>
@@ -52,37 +46,22 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="form-group has-feedback{{ $errors->has('name') ? ' has-error' : '' }}">
+                                <div class="form-group ">
                                     <label for="name">Username</label>
                                     <input type="text" class="form-control" id="" name="name"
-                                           placeholder="Nama Admin Pusat" required>
-                                    @if ($errors->has('name'))
-                                        <span class="help-block">
-                                            <p> {{ $errors->first('name') }} </p>
-                                        </span>
-                                    @endif
+                                           placeholder="Nama Admin Pusat"required>
                                 </div>
 
-                                <div class="form-group has-feedback{{ $errors->has('email') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="name">Email</label>
                                     <input type="email" class="form-control" id="" name="email"
                                            placeholder="Email" required>
-                                    @if ($errors->has('email'))
-                                        <span class="help-block">
-                                            <p> {{ $errors->first('email') }} </p>
-                                        </span>
-                                    @endif
                                 </div>
-                                <div class="form-group has-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="">Password</label>
                                     <input type="password" class="form-control" id="" name="password"
                                            data-toggle="password"
                                            placeholder="Password" required>
-                                    @if ($errors->has('password'))
-                                        <span class="help-block">
-                                            <p> {{ $errors->first('password') }} </p>
-                                        </span>
-                                    @endif
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>

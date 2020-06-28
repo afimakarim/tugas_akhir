@@ -122,6 +122,11 @@ Route::prefix('dealer')->group (function() {
     Route::post('/{promo}/editPromo','adminDealerController@updatePromo')->name('dealer.promo.update');
     Route::get('/{promo}/deletePromo','adminDealerController@destroy7')->name('dealer.promo.delete');
 
+    Route::get('/rangking','adminDealerController@rangking')->name('dealer.rangking');
+    Route::post('/rangking','adminDealerController@store14')->name('dealer.rangking.store14');
+    Route::get('/editRangking','adminDealerController@editRangking')->name('dealer.rangking.edit');
+    Route::post('/{rangking}/editRangking','adminDealerController@updateRangking')->name('dealer.rangking.update');
+    Route::get('/{rangking}/deleteRangking','adminDealerController@destroy14')->name('dealer.rangking.delete');
 
 
 

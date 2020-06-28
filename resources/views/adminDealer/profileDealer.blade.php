@@ -25,7 +25,7 @@
                             <div class="profile_img">
                                 <div id="crop-avatar">
                                     <!-- Current avatar -->
-                                    <img class="img-responsive avatar-view" src="{{ asset("storage/" . auth()->user()->gambar) }}" style="height: 100px; width: auto" alt="Avatar"
+                                    <img class="img-responsive avatar-view" src="{{ asset("storage/" . auth()->user()->gambar) }}" style="height: 200px; width: auto" alt="Avatar"
                                          title="Change the avatar">
                                 </div>
                             </div>

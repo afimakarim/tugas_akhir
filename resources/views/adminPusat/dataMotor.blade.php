@@ -31,14 +31,10 @@
                             <form action="{{ route('pusat.motor.store4') }}" method="post"
                                   enctype="multipart/form-data">
                                 {{ csrf_field() }}
-                                <div class="form-group has-feedback{{ $errors->has('gambar') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="">Gambar Motor </label>
                                     <input type="file" class="form-control" id="gambar_motor" name="gambar" required>
-                                    @if ($errors->has('gambar'))
-                                    <span class="help-block">
-                                        <p> {{ $errors->first('gambar') }} </p>
-                                    </span>
-                                    @endif
+
                                 </div>
                                 <div class="form-group">
                                     <label for="jenis_motor">Jenis Motor</label>
@@ -49,95 +45,59 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="form-group has-feedback{{ $errors->has('tipe_motor') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="tipe_motor">Tipe Motor</label>
                                     <input type="text" class="form-control" id="tipe_motor" name="tipe_motor"
                                            placeholder="Tipe Motor" required>
-                                    @if ($errors->has('tipe_motor'))
-                                        <span class="help-block">
-                                <p> {{ $errors->first('tipe_motor') }} </p>
-                            </span>
-                                    @endif
+
                                 </div>
-                                <div class="form-group has-feedback{{ $errors->has('harga_motor') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="harga_motor">Harga Motor</label>
                                     <input type="text" class="form-control" id="harga_motor" name="harga_motor"
                                            placeholder="Harga Motor" required>
-                                    @if ($errors->has('harga_motor'))
-                                        <span class="help-block">
-                                <p> {{ $errors->first('harga_motor') }} </p>
-                            </span>
-                                    @endif
+
                                 </div>
-                                <div class="form-group has-feedback{{ $errors->has('bahan_bakar') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="bahan_bakar">Jenis Bahan Bakar</label>
                                     <input type="text" class="form-control" id="bahan_bakar" name="bahan_bakar"
                                            placeholder="Bahan Bakar" required>
-                                    @if ($errors->has('bahan_bakar'))
-                                        <span class="help-block">
-                                <p> {{ $errors->first('bahan_bakar') }} </p>
-                            </span>
-                                    @endif
+
                                 </div>
-                                <div class="form-group has-feedback{{ $errors->has('ban_depan') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="ban_depan">Ban Depan</label>
                                     <input type="text" class="form-control" id="ban_depan" name="ban_depan"
                                            placeholder="Ban Depan" required>
-                                    @if ($errors->has('ban_depan'))
-                                        <span class="help-block">
-                                <p> {{ $errors->first('ban_depan') }} </p>
-                            </span>
-                                    @endif
+
                                 </div>
-                                <div class="form-group has-feedback{{ $errors->has('ban_belakang') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="ban_belakang">Ban Belakang</label>
                                     <input type="text" class="form-control" id="ban_belakang" name="ban_belakang"
                                            placeholder="Ban Belakang" required>
-                                    @if ($errors->has('ban_belakang'))
-                                        <span class="help-block">
-                                <p> {{ $errors->first('ban_belakang') }} </p>
-                            </span>
-                                    @endif
+
                                 </div>
-                                <div class="form-group has-feedback{{ $errors->has('jenis_ban') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="jenis_ban">Jenis Ban</label>
                                     <input type="text" class="form-control" id="jenis_ban" name="jenis_ban"
                                            placeholder="Jenis Ban" required>
-                                    @if ($errors->has('jenis_ban'))
-                                        <span class="help-block">
-                                <p> {{ $errors->first('jenis_ban') }} </p>
-                            </span>
-                                    @endif
+
                                 </div>
-                                <div class="form-group has-feedback{{ $errors->has('kapasitas_mesin') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="kapasitas_mesin">Kapasitas Mesin</label>
                                     <input type="text" class="form-control" id="kapasitas_mesin" name="kapasitas_mesin"
                                            placeholder="Kapasitas Mesin" required>
-                                    @if ($errors->has('kapasitas_mesin'))
-                                        <span class="help-block">
-                                <p> {{ $errors->first('kapasitas_mesin') }} </p>
-                            </span>
-                                    @endif
+
                                 </div>
-                                <div class="form-group has-feedback{{ $errors->has('tenaga_maksimal') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="tenaga_maksimal">Tenaga Maksimal</label>
                                     <input type="text" class="form-control" id="tenaga_maksimal" name="tenaga_maksimal"
                                            placeholder="Tenaga Maksimal" required>
-                                    @if ($errors->has('tenaga_maksimal'))
-                                        <span class="help-block">
-                                <p> {{ $errors->first('tenaga_maksimal') }} </p>
-                            </span>
-                                    @endif
+
                                 </div>
-                                <div class="form-group has-feedback{{ $errors->has('jenis_transmisi') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="jenis_transmisi">Jenis Trasnmisi</label>
                                     <input type="text" class="form-control" id="jenis_transmisi" name="jenis_transmisi"
                                            placeholder="Jenis Transmisi" required>
-                                    @if ($errors->has('jenis_transmisi'))
-                                        <span class="help-block">
-                                <p> {{ $errors->first('jenis_transmisi') }} </p>
-                            </span>
-                                    @endif
+
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>

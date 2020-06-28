@@ -24,31 +24,31 @@
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align"for="username_dealer">Nama Admin Dealer</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input  class="form-control"  id="nama_dealer" name="name" placeholder="Nama Admin Dealer"value="{{ $dealer->name }}">
+                                <input  class="form-control"  id="nama_dealer" name="name" placeholder="Nama Admin Dealer"value="{{ $dealer->name }}" required>
                             </div>
                         </div>
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align"for="email_dealer">Email</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="email" class="form-control" id="email_dealer" name="email" placeholder="Email" value="{{ $dealer->email }}">
+                                <input type="email" class="form-control" id="email_dealer" name="email" placeholder="Email" value="{{ $dealer->email }}" required>
                             </div>
                         </div>
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align"for="">Telephone</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input  class="form-control"  id="" name="telephone" placeholder="Telephone" value="{{ $dealer->telephone }}">
+                                <input  class="form-control"  id="" name="telephone" placeholder="Telephone" value="{{ $dealer->telephone }}" required>
                             </div>
                         </div>
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align"for="">Alamat Dealer</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <textarea id="" cols="30" rows="5" class="form-control" name="alamat" placeholder="Alamat Dealer" >{{ $dealer->alamat }}</textarea>
+                                <textarea id="" cols="30" rows="5" class="form-control" name="alamat" placeholder="Alamat Dealer" required>{{ $dealer->alamat }} </textarea>
                             </div>
                         </div>
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align"for="">Keterangan Dealer</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <textarea id="" cols="30" rows="5" class="form-control" name="ket_dealer" placeholder="Keterangan Dealer" >{{ $dealer->ket_dealer }}</textarea>
+                                <textarea id="" cols="30" rows="5" class="form-control" name="ket_dealer" placeholder="Keterangan Dealer" required>{{ $dealer->ket_dealer }}</textarea>
                             </div>
                         </div>
                         <div class="item form-group">

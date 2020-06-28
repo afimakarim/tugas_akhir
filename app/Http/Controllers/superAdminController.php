@@ -26,6 +26,7 @@ class superAdminController extends Controller
         return view('superAdmin.homeSuperAdmin');
     }
 
+    //user admin pusat
     public function userAdminPusat()
     {
         $mereks = Merek::all();
@@ -90,7 +91,7 @@ class superAdminController extends Controller
         return redirect()->route('admin.pusat')->withDanger('Merek berhasil dihapus');
     }
 
-
+    //merek motor
     public function merek()
     {
         $mereks = Merek::all();
@@ -137,7 +138,7 @@ class superAdminController extends Controller
         $merek->delete();
         return redirect()->route('admin.merek')->withDanger('Merek berhasil dihapus');
     }
-
+    //jenis motor
     public function jenis()
     {
         $jenis = Jenis::all();
@@ -168,6 +169,7 @@ class superAdminController extends Controller
         return redirect()->route('admin.jenis')->withDanger('Merek berhasil dihapus');
     }
 
+    //nilai
     public function nilai()
     {
         return view('superAdmin.nilai');
@@ -189,7 +191,7 @@ class superAdminController extends Controller
 
     }
 
-
+    //kriteria
     public function kriteria()
     {
         return view('superAdmin.kriteria');
@@ -211,6 +213,7 @@ class superAdminController extends Controller
 
     }
 
+    //alternatif
     public function alternatif()
     {
         return view('superAdmin.alternatif');
@@ -220,6 +223,7 @@ class superAdminController extends Controller
 
     }
 
+    //bobot
     public function bobot()
     {
         return view('superAdmin.bobot');
@@ -241,6 +245,7 @@ class superAdminController extends Controller
 
     }
 
+    //perangkingan
     public function perangkingan()
     {
         return view('superAdmin.perangkingan');

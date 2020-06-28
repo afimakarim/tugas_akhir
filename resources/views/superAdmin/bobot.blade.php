@@ -29,7 +29,7 @@
                         <div class="modal-body">
                             <form action="" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
-                                <div class="form-group has-feedback{{ $errors->has('kriteria') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="kriteria">Kriteria</label>
                                     <select class="form-control" id="kriteria" name="kriteria">
                                         <option value="" selected>-- Pilih Kriteria --</option>

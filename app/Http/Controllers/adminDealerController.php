@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Alternatif;
 use App\Dealer;
+use App\Kriteria;
 use App\Promo;
 use App\Motor;
 use Storage;
@@ -18,11 +20,6 @@ class adminDealerController extends Controller
         return view('adminDealer.profileDealer');
     }
 
-
-    public function homeAdminDealer()
-    {
-        return view('adminDealer.homeAdminDealer');
-    }
 
     //profile dealer
     public function profileDealer()
@@ -64,14 +61,15 @@ class adminDealerController extends Controller
     }
     public function store7(Request $request)
     {
-        $promo = new Promo();
-        $promo->gambar = $request->file('gambar')->store('promo');
-        $promo->judul = $request->judul;
-        $promo->ket_promo = $request->ket_promo;
-        $promo->motor_id = $request->tipe_motor;
-        $promo->dealer_id = auth()->user()->id;
-        $promo->save();
-
+        foreach ($request->tipe_motor as $tipe) {
+            $promo = new Promo();
+            $promo->gambar = $request->file('gambar')->store('promo');
+            $promo->judul = $request->judul;
+            $promo->ket_promo = $request->ket_promo;
+            $promo->motor_id = $tipe;
+            $promo->dealer_id = auth()->user()->id;
+            $promo->save();
+        }
         return redirect()->route('dealer.promo')->withInfo('Merek Ditambahkan');
     }
     public function editPromo(Promo $promo)
@@ -88,7 +86,6 @@ class adminDealerController extends Controller
         $promo->judul = $request->judul;
         $promo->ket_promo = $request->ket_promo;
         $promo->motor_id = $request->tipe_motor;
-        $promo->dealer_id = auth()->user()->id;
         $promo->update();
         return redirect()->route('dealer.promo')->withInfo('Merek berhasil dirubah');
     }
@@ -101,22 +98,39 @@ class adminDealerController extends Controller
     //rangking alternatif
     public function rangking()
     {
-        return view('adminDealer.rangking');
+        $kriterias = Kriteria::all();
+        $alternatifs = Alternatif::where('dealer_id', auth()->user()->id)->get();
+        $motors = Motor::all();
+        return view('adminDealer.rangking', compact(['motors', 'kriterias', 'alternatifs']));
     }
-    public  function store14()
+    public  function store14(Request $request)
     {
-
+        foreach ($request->tipe_motor as $tipe) {
+        $alternatif = new Alternatif();
+        $alternatif->motor_id = $tipe;
+        $alternatif->nilai = $request->nilai;
+        $alternatif->kriteria_id = $request->kriteria_id;
+        $alternatif->dealer_id = auth()->user()->id;
+        $alternatif->save();
+        }
+        return redirect()->route('dealer.rangking')->withInfo('Merek Ditambahkan');
     }
-    public  function editRangking()
+    public  function editRangking(Alternatif $alternatif)
     {
-        return view('adminDealer.editRangking');
+        $motors = Motor::all();
+        $kriterias = Kriteria::all();
+        return view('adminDealer.editRangking', compact('motors', 'kriterias', 'alternatif'));
     }
-    public function updateRangking()
+    public function updateRangking(Request $request, Alternatif $alternatif)
     {
-
+        $alternatif->motor_id = $request->tipe_motor;
+        $alternatif->nilai = $request->nilai;
+        $alternatif->kriteria_id = $request->kriteria;
+        $alternatif->save();
     }
-    public function destroy14()
+    public function destroy14(Alternatif $alternatif)
     {
-
+        $alternatif->delete();
+        return redirect()->route('dealer.rangking')->withDanger('Merek berhasil dihapus');
     }
 }

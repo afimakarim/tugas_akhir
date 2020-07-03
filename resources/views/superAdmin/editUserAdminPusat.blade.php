@@ -25,7 +25,7 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="merek">Merek Motor</label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <select class="form-control" id="merek" name="merek_id">
-                                        <option value="">--Pilih Merek Motor--</option>
+                                        <option value="" disabled selected>--Pilih Merek Motor--</option>
                                         @foreach($mereks as $merek)
                                             <option value="{{ $merek->id }}"
                                                     @if ($merek ->id === $user->merek_id)

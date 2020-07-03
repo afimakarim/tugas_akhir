@@ -27,26 +27,26 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="" method="post" enctype="multipart/form-data">
+                            <form action="{{route('dealer.rangking.store14')}}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
 
                                 <div class="form-group">
                                     <label for="tipe_id">Tipe Motor</label>
-                                    <select class="form-control" id="tipe_id" name="tipe_id">
-                                        <option value="" selected>-- Pilih Tipe Motor --</option>
-                                        {{--                                        @foreach($jenis as $item)--}}
-                                        <option value=""></option>
-                                        {{--                                        @endforeach--}}
+                                    <select class="form-control" id="tipe_motor" name="tipe_motor[]">
+                                        <option value="" disabled selected>-- Pilih Tipe Motor --</option>
+                                        @foreach($motors as $motor)
+                                            <option value="{{ $motor->id }}">{{ $motor->tipe_motor }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="kriteria_id">Merek Motor</label>
+                                    <label for="kriteria_id">Kriteria</label>
                                     <select class="form-control" id="kriteria_id" name="kriteria_id">
-                                        <option value="" selected>-- Pilih Kriteria --</option>
-                                        {{--                                        @foreach($jenis as $item)--}}
-                                        <option value=""></option>
-                                        {{--                                        @endforeach--}}
+                                        <option value="" disabled selected>-- Pilih Kriteria --</option>
+                                        @foreach($kriterias as $kriteria)
+                                            <option value="{{ $kriteria->id }}">{{ $kriteria->nama_kriteria }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
 
@@ -83,30 +83,30 @@
                 </tr>
                 </thead>
                 <tbody>
-                {{--                @foreach($jenis as $jenis)--}}
+                                @foreach($alternatifs as $alternatif)
                 <tr>
-                    <td>
+                    <td>{{$alternatif->motor->tipe_motor}}
                     </td>
 
-                    <td>
+                    <td>{{$alternatif->kriteria->nama_kriteria}}
                     </td>
 
-                    <td>
+                    <td>{{$alternatif->nilai}}
                     </td>
 
-                    <td><a href="{{ route('dealer.rangking.edit') }}"
+                    <td><a href="{{ route('dealer.rangking.edit', $alternatif) }}"
                            onclick="return confirm('Yakin Anda ingin menngedit Data ini ?')"><i class='fa fa-edit'
                                                                                                 style='font-size:25px;color:blue'
                                                                                                 alt="logo"
                                                                                                 title="Edit"></i>
                         </a>
-                        <a href=""
+                        <a href="{{ route('dealer.rangking.delete', $alternatif) }}"
                            onclick="return confirm('Yakin Anda ingin menghapus Data ini ?')"><i class='fa fa-trash'
                                                                                                 style='font-size:25px;color:red'
                                                                                                 title="Hapus"> </i></a>
                     </td>
                 </tr>
-                {{--                @endforeach--}}
+                                @endforeach
                 </tbody>
             </table>
             <!--End Tabel-->

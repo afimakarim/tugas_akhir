@@ -13,7 +13,7 @@ class JenisSeeder extends Seeder
     {
         \App\Jenis::create
         ([
-            'name' => "Skuter Matik"
+            'name' => "Skuter"
         ]);
         \App\Jenis::create
         ([

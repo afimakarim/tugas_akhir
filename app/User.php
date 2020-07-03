@@ -24,6 +24,10 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Merek::class);
     }
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class);
+    }
 
     // protected $guarded = [];
 

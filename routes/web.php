@@ -20,8 +20,26 @@ Auth::routes();
 // Auth::routes(["register" => false]);
 // Auth::routes(["except" => "register"]);
 
- Route::get('/home', 'HomeController@index');
- Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
+// Route::get('/home', 'HomeController@index');
+// Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
+
+
+//User
+Route::get('/cariMotor','UserController@cariMotor')->name('user.cariMotor');
+Route::get('/detailMotor','UserController@detailMotor')->name('user.detailMotor');
+Route::get('/anggaranMotor','UserController@anggaranMotor')->name('user.anggaranMotor');
+
+Route::get('/dealerMotor','UserController@dealerMotor')->name('user.dealerMotor');
+Route::get('/detailDealer','UserController@detailDealer')->name('user.detailDealer');
+
+Route::get('/detailPromo','UserController@detailPromo')->name('user.detailPromo');
+
+Route::get('/infoSPK','UserController@infoSPK')->name('user.infoSPK');
+Route::get('/SPK-Nama','UserController@spk')->name('user.spk');
+Route::get('/SPK-Pilih','UserController@spk2')->name('user.spk2');
+Route::get('/SPK-Kriteria','UserController@spk3')->name('user.spk3');
+Route::get('/hasil-SPK','UserController@hasilSPK')->name('user.spk.hasil');
+
 //super Admin
  Route::prefix('superAdmin')->group (function() {
      Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
@@ -49,13 +67,13 @@ Auth::routes();
 
      Route::get('/nilai','superAdminController@nilai')->name('admin.nilai');
      Route::post('/nilai', 'superAdminController@store8')->name('admin.nilai.store8');
-     Route::get('/editnilai','superAdminController@editNilai')->name('admin.nilai.edit');
-     Route::post('/{nilai}/editNilai', 'superAdminController@updateJenis')->name('admin.nilai.update');
+     Route::get('/{nilai}/editNilai','superAdminController@editNilai')->name('admin.nilai.edit');
+     Route::post('/{nilai}/editNilai', 'superAdminController@updateNilai')->name('admin.nilai.update');
      Route::get('/{nilai}/deleteNilai', 'superAdminController@destroy8')->name('admin.nilai.delete');
 
      Route::get('/kriteria','superAdminController@kriteria')->name('admin.kriteria');
      Route::post('/kriteria', 'superAdminController@store9')->name('admin.kriteria.store9');
-     Route::get('/editkriteria','superAdminController@editKriteria')->name('admin.kriteria.edit');
+     Route::get('/{kriteria}/editkriteria','superAdminController@editKriteria')->name('admin.kriteria.edit');
      Route::post('/{kriteria}/editKriteria', 'superAdminController@updateKriteria')->name('admin.kriteria.update');
      Route::get('/{kriteria}/deleteKriteria', 'superAdminController@destroy8')->name('admin.kriteria.delete');
 
@@ -85,9 +103,11 @@ Auth::routes();
  Route::prefix('pusat')->group (function() {
     Route::get('/login', 'Auth\LoginController@showLoginForm')->name('pusat.login');
     Route::post('/login', 'Auth\LoginController@login')->name('pusat.login.submit');
-    Route::get('/', 'adminPusatController@index')->name('pusat.dashboard');
     Route::get('/logout', 'Auth\LoginController@logout')->name('pusat.logout');
 
+    Route::get('/', 'adminPusatController@profilePusat')->name('pusat.profile');
+    Route::get('/{user}/editPofilePusat','adminPusatController@editProfilePusat')->name('pusat.profile.edit');
+    Route::post('/{user}/editPofilePusat','adminPusatController@updateProfilePusat')->name('pusat.profile.update');
 
     Route::get('/userAdminDealer','adminPusatController@userAdminDealer')->name('pusat.dealer');
     Route::post('/userAdminDealer','adminPusatController@store3')->name('pusat.dealer.store3');
@@ -124,9 +144,9 @@ Route::prefix('dealer')->group (function() {
 
     Route::get('/rangking','adminDealerController@rangking')->name('dealer.rangking');
     Route::post('/rangking','adminDealerController@store14')->name('dealer.rangking.store14');
-    Route::get('/editRangking','adminDealerController@editRangking')->name('dealer.rangking.edit');
-    Route::post('/{rangking}/editRangking','adminDealerController@updateRangking')->name('dealer.rangking.update');
-    Route::get('/{rangking}/deleteRangking','adminDealerController@destroy14')->name('dealer.rangking.delete');
+    Route::get('/{alternatif}/editRangking','adminDealerController@editRangking')->name('dealer.rangking.edit');
+    Route::post('/{alternatif}/editRangking','adminDealerController@updateRangking')->name('dealer.rangking.update');
+    Route::get('/{alternatif}/deleteRangking','adminDealerController@destroy14')->name('dealer.rangking.delete');
 
 
 
@@ -136,3 +156,4 @@ Route::prefix('dealer')->group (function() {
     Route::post('/password/reset', 'Auth\DealerResetPasswordController@reset');
     Route::get('/password/reset/{token}', 'Auth\DealerResetPasswordController@showResetForm')->name('dealer.password.reset');
 });
+

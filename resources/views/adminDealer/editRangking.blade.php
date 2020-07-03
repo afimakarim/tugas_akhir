@@ -11,7 +11,7 @@
                     </div>
                     <div class="x_content">
                         <br/>
-                        <form action="" enctype="multipart/form-data"
+                        <form action="{{ route('dealer.rangking.update', $alternatif) }}" enctype="multipart/form-data"
                               method="post" id="demo-form2" data-parsley-validate
                               class="form-horizontal form-label-left">
                             {{ csrf_field() }}
@@ -19,16 +19,16 @@
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="tipe_id">Tipe Motor</label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <select class="form-control"  id="tipe_id" name="tipe_id" >
-                                        <option value="" >-- Pilih Tipe Motor --</option>
-                                        {{--                                        @foreach($jenis as $item)--}}
-                                        <option value=""
-                                                {{--                                                    @if ($item ->id === $motor->jenis_id)--}}
-                                                {{--                                                    selected--}}
-                                                {{--                                                    @endif--}}
-                                        >
-                                        {{--                                                {{ $item->name }}</option>--}}
-                                        {{--                                        @endforeach--}}
+                                    <select class="form-control"  id="tipe_id" name="tipe_motor" >
+                                        <option value="" disabled selected>-- Pilih Tipe Motor --</option>
+                                        @foreach($motors as $motor)
+                                            <option value="{{ $motor->id }}"
+                                                    @if ($motor->id === $alternatif->motor_id)
+                                                    selected
+                                                    @endif
+                                            >
+                                                {{ $motor->tipe_motor }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -36,15 +36,15 @@
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="kriteria_id">Kriteria</label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <select class="form-control"  id="kriteria_id" name="kriteria_id" >
-                                        <option value="" >-- Pilih Kriteria --</option>
-                                        {{--                                        @foreach($jenis as $item)--}}
-                                        <option value=""
-                                                {{--                                                    @if ($item ->id === $motor->jenis_id)--}}
-                                                {{--                                                    selected--}}
-                                                {{--                                                    @endif--}}
-                                        >
-                                        {{--                                                {{ $item->name }}</option>--}}
-                                        {{--                                        @endforeach--}}
+                                        <option value="" disabled selected>-- Pilih Kriteria --</option>
+                                        @foreach($kriterias as $kriteria)
+                                            <option value="{{ $kriteria->id }}"
+                                                    @if ($kriteria ->id === $alternatif->kriteria_id)
+                                                    selected
+                                                    @endif
+                                            >
+                                                {{ $kriteria->nama_kriteria }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="name">Nilai</label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <input type="text" class="form-control" id="" name="nilai" placeholder="Nilai"
-                                           value="" required>
+                                           value="{{$alternatif->nilai}}" required>
                                 </div>
                             </div>
 

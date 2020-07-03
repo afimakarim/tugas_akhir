@@ -12,7 +12,7 @@ class Motor extends Model
     use SoftDeletes;
     protected $table = 'motors';
     protected $fillable = [
-        'gambar', 'jenis_motor', 'tipe_motor',  'harga_motor', 'bahan_bakar', 'bahan_bakar', 'ban_depan', 'ban_belakang', 'jenis_ban',
+        'gambar', 'jenis_motor', 'tipe_motor',  'harga_motor', 'merek_id', 'warna', 'ban_depan', 'ban_belakang', 'jenis_ban',
         'kapasitas_mesin', 'tenaga_maksimal', 'jenis_transmisi'
     ];
     public function user()

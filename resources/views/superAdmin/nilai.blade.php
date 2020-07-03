@@ -27,17 +27,17 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="" method="post" enctype="multipart/form-data">
+                            <form action="{{ route("admin.nilai.store8") }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
 
                                 <div class="form-group">
                                     <label for="name">Keterangan Nilai</label>
-                                    <input type="text" class="form-control" id="" name="name"
+                                    <input type="text" class="form-control" id="" name="nama_nilai"
                                            placeholder="Keterangan Nilai" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="name">Nilai</label>
-                                    <input type="text" class="form-control" id="" name="nilai"
+                                    <input type="number" class="form-control" id="" name="nilai"
                                            placeholder="Nilai" required>
                                 </div>
 
@@ -66,27 +66,27 @@
                 </tr>
                 </thead>
                 <tbody>
-{{--                @foreach($jenis as $jenis)--}}
+                @foreach($nilais as $nilai)
                     <tr>
-                        <td>
+                        <td>{{$nilai->nama_nilai}}
                         </td>
 
-                        <td>
+                        <td>{{$nilai->nilai}}
                         </td>
 
-                        <td><a href="{{ route('admin.nilai.edit') }}"
+                        <td><a href="{{ route('admin.nilai.edit', $nilai) }}"
                                onclick="return confirm('Yakin Anda ingin menngedit Data ini ?')"><i class='fa fa-edit'
                                                                                                     style='font-size:25px;color:blue'
                                                                                                     alt="logo"
                                                                                                     title="Edit"></i>
                             </a>
-                            <a href=""
+                            <a href="{{ route('admin.nilai.delete', $nilai) }}"
                                onclick="return confirm('Yakin Anda ingin menghapus Data ini ?')"><i class='fa fa-trash'
                                                                                                     style='font-size:25px;color:red'
                                                                                                     title="Hapus"> </i></a>
                         </td>
                     </tr>
-{{--                @endforeach--}}
+                @endforeach
                 </tbody>
             </table>
             <!--End Tabel-->

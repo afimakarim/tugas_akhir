@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark"  >
 
-    <a class="navbar-brand" href="#"><img src="{{asset('img/motorr.png')}}"style="width:50px;height:50px;" style="color: white;">  SPK Motor</a>
+    <a class="navbar-brand"href="{{ url('/') }}"><img src="{{asset('img/tr.png')}}"style="height: 50px; width: auto" ></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon "></span>
@@ -10,10 +10,10 @@
 
         <ul class="navbar-nav mr-auto">
             <li class="nav-item " >
-                <a class="nav-link"  href="#"><i class='fas fa-home' ></i> Home<span class="sr-only">(current)</span></a>
+                <a class="nav-link"  href="{{ url('/') }}"><i class='fas fa-home' ></i> Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link"  href="#"><i class="fas fa-search"></i> Cari Motor<span class="sr-only">(current)</span></a>
+                <a class="nav-link"  href="{{ route('user.cariMotor') }}"><i class="fas fa-search"></i> Cari Motor<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link"  href="#"><i class='fa fa-motorcycle'></i> Dealer Motor<span class="sr-only">(current)</span></a>

@@ -11,23 +11,23 @@
                     </div>
                     <div class="x_content">
                         <br/>
-                        <form action="" enctype="multipart/form-data"
+                        <form action="{{route("admin.nilai.update", $nilai)}}" enctype="multipart/form-data"
                               method="post" id="demo-form2" data-parsley-validate
                               class="form-horizontal form-label-left">
                             {{ csrf_field() }}
                             {{ method_field('POST') }}
                             <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="name">Keterangan Nilai</label>
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="nama_nilai">Keterangan Nilai</label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <input type="text" class="form-control" id="" name="name" placeholder="Keterangan Nilai"
-                                           value="" required>
+                                           value="{{ $nilai->nama_nilai }}" required>
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="name">Nilai</label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" class="form-control" id="" name="nilai" placeholder="Nilai"
-                                           value="" required>
+                                    <input type="number" class="form-control" id="" name="nilai" placeholder="Nilai"
+                                           value="{{ $nilai->nilai }}" required>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

@@ -40,7 +40,7 @@
                                 <div class="form-group">
                                     <label for="merek">Merek Motor</label>
                                     <select class="form-control" id="merek" name="merek_id">
-                                        <option value="">--Pilih Merek Motor--</option>
+                                        <option value="" disabled selected>--Pilih Merek Motor--</option>
                                         @foreach($mereks as $merek)
                                             <option value="{{ $merek->id }}">{{ $merek->name }}</option>
                                         @endforeach

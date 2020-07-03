@@ -39,7 +39,7 @@
                                 <div class="form-group">
                                     <label for="jenis_motor">Jenis Motor</label>
                                     <select class="form-control" id="jenis_motor" name="jenis_motor">
-                                        <option value="" selected>-- Pilih Jenis Motor --</option>
+                                        <option value=""  disabled selected>-- Pilih Jenis Motor --</option>
                                         @foreach($jenis as $item)
                                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                                         @endforeach
@@ -49,18 +49,27 @@
                                     <label for="tipe_motor">Tipe Motor</label>
                                     <input type="text" class="form-control" id="tipe_motor" name="tipe_motor"
                                            placeholder="Tipe Motor" required>
-
+                                <div class="form-group">
+                                    <label for="jenis_transmisi">Tipe Transmisi</label>
+                                    <select class="form-control" id="jenis_transmisi" name="jenis_transmisi">
+                                        <option value=""  disabled selected>-- Pilih Jenis Transmisi --</option>
+                                        <option value="Manual, 4-kecepatan">Manual, 4-kecepatan</option>
+                                        <option value="Manual, 5-kecepatan">Manual, 5-kecepatan</option>
+                                        <option value="Manual, 6-kecepatan">Manual, 6-kecepatan</option>
+                                        <option value="Otomatis, CVT">Otomatis, CVT</option>
+                                    </select>
+                                </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="harga_motor">Harga Motor</label>
-                                    <input type="text" class="form-control" id="harga_motor" name="harga_motor"
+                                    <input type="number"  class="form-control" id="harga_motor" name="harga_motor"
                                            placeholder="Harga Motor" required>
 
                                 </div>
                                 <div class="form-group">
-                                    <label for="bahan_bakar">Jenis Bahan Bakar</label>
-                                    <input type="text" class="form-control" id="bahan_bakar" name="bahan_bakar"
-                                           placeholder="Bahan Bakar" required>
+                                    <label for="warna">Varian Warna</label>
+                                    <input type="text" class="form-control" id="warna" name="warna"
+                                           placeholder="warna" required>
 
                                 </div>
                                 <div class="form-group">
@@ -83,22 +92,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="kapasitas_mesin">Kapasitas Mesin</label>
-                                    <input type="text" class="form-control" id="kapasitas_mesin" name="kapasitas_mesin"
+                                    <input type="number" step="0.01" class="form-control" id="kapasitas_mesin" name="kapasitas_mesin"
                                            placeholder="Kapasitas Mesin" required>
 
                                 </div>
                                 <div class="form-group">
                                     <label for="tenaga_maksimal">Tenaga Maksimal</label>
-                                    <input type="text" class="form-control" id="tenaga_maksimal" name="tenaga_maksimal"
+                                    <input type="number" step="0.01" class="form-control" id="tenaga_maksimal" name="tenaga_maksimal"
                                            placeholder="Tenaga Maksimal" required>
-
                                 </div>
-                                <div class="form-group">
-                                    <label for="jenis_transmisi">Jenis Trasnmisi</label>
-                                    <input type="text" class="form-control" id="jenis_transmisi" name="jenis_transmisi"
-                                           placeholder="Jenis Transmisi" required>
 
-                                </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                                     <button type="submit" class="btn btn-primary" value="save">Tambah</button>
@@ -118,14 +121,14 @@
                         <th scope="col">Gambar Motor</th>
                         <th scope="col">Jenis Motor</th>
                         <th scope="col">Tipe Motor</th>
+                        <th scope="col">Tipe Transmisi</th>
                         <th scope="col">Harga Motor</th>
-                        <th scope="col">Jenis Bahan Bakar</th>
+                        <th scope="col">Varian Warna</th>
                         <th scope="col">Ban Depan</th>
                         <th scope="col">Ban Belakang</th>
                         <th scope="col">Jenis Ban</th>
                         <th scope="col">Kapasitas Mesin</th>
                         <th scope="col">Tenaga Maksimal</th>
-                        <th scope="col">Jenis Transmisi</th>
                         <th scope="col"></th>
                     </tr>
                     </thead>
@@ -137,14 +140,14 @@
                             </td>
                             <td>{{$motor->jenis->name}}</td>
                             <td>{{$motor->tipe_motor}}</td>
+                            <td>{{$motor->jenis_transmisi}}</td>
                             <td>{{$motor->harga_motor}}</td>
-                            <td>{{$motor->bahan_bakar}}</td>
+                            <td>{{$motor->warna}}</td>
                             <td>{{$motor->ban_depan}}</td>
                             <td>{{$motor->ban_belakang}}</td>
                             <td>{{$motor->jenis_ban}}</td>
                             <td>{{$motor->kapasitas_mesin}}</td>
                             <td>{{$motor->tenaga_maksimal}}</td>
-                            <td>{{$motor->jenis_transmisi}}</td>
                             <td>
                                 <a href="{{ route('pusat.motor.edit', $motor) }}"
                                    onclick="return confirm('Yakin Anda ingin mengedit Data ini ?')">

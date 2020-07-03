@@ -25,7 +25,7 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="jenis_motor">Jenis Motor</label>
                                 <div class="col-md-6 col-sm-6 ">
                                 <select class="form-control"  id="jenis_motor" name="jenis_motor" >
-                                    <option value="" >-- Pilih Jenis Motor --</option>
+                                    <option value=""  disabled selected >-- Pilih Jenis Motor --</option>
                                     @foreach($jenis as $item)
                                         <option value="{{ $item->id }}"
                                         @if ($item ->id === $motor->jenis_id)
@@ -44,15 +44,27 @@
                             </div>
                         </div>
                         <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="jenis_transmisi">Tipe Transmisi</label>
+                            <div class="col-md-6 col-sm-6 ">
+                            <select class="form-control" id="jenis_transmisi" name="jenis_transmisi">
+                                <option value=""  disabled selected >-- Pilih Tipe Motor --</option>
+                                <option value="Manual, 4-kecepatan" @if($motor->jenis_transmisi == 'Manual, 4-kecepatan') selected @endif >Manual, 4-kecepatan</option>
+                                <option value="Manual, 5-kecepatan"@if($motor->jenis_transmisi == 'Manual, 5-kecepatan') selected @endif>Manual, 5-kecepatan</option>
+                                <option value="Manual, 6-kecepatan"@if($motor->jenis_transmisi == 'Manual, 6-kecepatan') selected @endif>Manual, 6-kecepatan</option>
+                                <option value="Otomatis, CVT" @if($motor->jenis_transmisi == 'Otomatis, CVT') selected @endif>Otomatis, CVT</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="harga_motor">Harga Motor</label>
                             <div class="col-md-6 col-sm-6 ">
                                 <input type="text" class="form-control" id="harga_motor" name="harga_motor" placeholder="Harga Motor" value="{{ $motor->harga_motor }}" required>
                             </div>
                         </div>
                         <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="bahan_bakar">Bahan Bakar</label>
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="warna">Varian Warna</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" class="form-control" id="bahan_bakar" name="bahan_bakar" placeholder="Bahan Bakar" value="{{ $motor->bahan_bakar }}" required>
+                                <input type="text" class="form-control" id="warna" name="warna" placeholder="warna" value="{{ $motor->warna }}" required>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -85,12 +97,7 @@
                                 <input type="text" class="form-control" id="tenaga_maksimal" name="tenaga_maksimal" placeholder="Tenaga Maksimal" value="{{ $motor->tenaga_maksimal }}" required>
                             </div>
                         </div>
-                        <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="jenis_transmisi">Jenis Transmisi</label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <input type="text" class="form-control" name="jenis_transmisi" placeholder="Jenis Transmisi" value="{{ $motor->jenis_transmisi }}" required>
-                            </div>
-                        </div>
+
                         <div class="ln_solid"></div>
                             <div class="item form-group">
                                 <div class="col-md-6 col-sm-6 offset-md-3">

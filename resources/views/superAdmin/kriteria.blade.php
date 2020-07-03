@@ -27,22 +27,28 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="" method="post" enctype="multipart/form-data">
+                            <form action="{{ route("admin.kriteria.store9") }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
 
                                 <div class="form-group">
                                     <label for="name">Nama Kriteria</label>
-                                    <input type="text" class="form-control" id="" name="name"
+                                    <input type="text" class="form-control" id="" name="nama_kriteria"
                                            placeholder="Nama Kriteria" required>
                                 </div>
-                                <div class="form-group has-feedback{{ $errors->has('nilai') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label for="tipe_kriteria">Tipe Kriteria</label>
-                                    <select class="form-control" id="tipe_kriteria" name="tipe_kriteria">
-                                        <option value="" selected>-- Pilih Tipe Kriteria --</option>
-{{--                                        @foreach($jenis as $item)--}}
-                                            <option value=""></option>
-{{--                                        @endforeach--}}
-                                    </select>
+                                    <br>
+                                    <div class="col-md-6 col-sm-6">
+                                        <div id="gender" class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn-danger" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                <input type="radio" name="tipe_kriteria" value="cost" class="join-btn" required> &nbsp; Cost &nbsp;
+                                            </label>
+                                            <br>
+                                            <label class="btn btn-success" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                <input type="radio" name="tipe_kriteria" value="benefit" class="join-btn" required> Benefit
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="modal-footer">
@@ -70,27 +76,27 @@
                 </tr>
                 </thead>
                 <tbody>
-                {{--                @foreach($jenis as $jenis)--}}
+                                @foreach($kriterias as $kriteria)
                 <tr>
-                    <td>
+                    <td>{{$kriteria->nama_kriteria}}
                     </td>
 
-                    <td>
+                    <td>{{$kriteria->tipe_kriteria}}
                     </td>
 
-                    <td><a href="{{ route('admin.kriteria.edit') }}"
+                    <td><a href="{{ route('admin.kriteria.edit', $kriteria) }}"
                            onclick="return confirm('Yakin Anda ingin menngedit Data ini ?')"><i class='fa fa-edit'
                                                                                                 style='font-size:25px;color:blue'
                                                                                                 alt="logo"
                                                                                                 title="Edit"></i>
                         </a>
-                        <a href=""
+                        <a href="{{ route('admin.kriteria.delete', $kriteria) }}"
                            onclick="return confirm('Yakin Anda ingin menghapus Data ini ?')"><i class='fa fa-trash'
                                                                                                 style='font-size:25px;color:red'
                                                                                                 title="Hapus"> </i></a>
                     </td>
                 </tr>
-                {{--                @endforeach--}}
+                                @endforeach
                 </tbody>
             </table>
             <!--End Tabel-->

@@ -15,14 +15,38 @@ class adminPusatController extends Controller
     }
     public function index()
     {
-        return view('adminPusat.homeAdminPusat');
+        return view('adminPusat.profilePusat');
     }
 
-
-    public function homeAdminPusat()
+    //profile Pusat
+    public function profilePusat()
     {
-        return view('adminPusat.homeAdminPusat');
+        $user = User::where('merek_id', auth()->user()->id)->first();
+        return view('adminPusat.profilePusat', compact( 'user'));
     }
+    public function editProfilePusat(User $user)
+    {
+        return view('adminPusat.editProfilePusat', compact('user'));
+    }
+    public function updateProfilePusat(Request $request)
+    {
+        $user = User::where('id', auth()->user()->id)->first();
+        if ($request->gambar) {
+            Storage::delete($user->gambar);
+            $user->gambar = $request->file('gambar')->store('pusat');
+        }
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if (!empty($request['password'])) {
+            $user->password = bcrypt($request->password);
+        }
+//        dd($dealer);
+        $user->update();
+
+        return redirect()->route('pusat.profile')->withInfo('Merek berhasil dirubah');
+    }
+
+
 
     //user admin dealer
     public function userAdminDealer()
@@ -87,7 +111,7 @@ class adminPusatController extends Controller
         $motor->jenis_id = $request->jenis_motor;
         $motor->tipe_motor = $request->tipe_motor;
         $motor->harga_motor = $request->harga_motor;
-        $motor->bahan_bakar = $request->bahan_bakar;
+        $motor->warna = $request->warna;
         $motor->ban_depan = $request->ban_depan;
         $motor->ban_belakang = $request->ban_belakang;
         $motor->jenis_ban = $request->jenis_ban;
@@ -114,7 +138,7 @@ class adminPusatController extends Controller
         $motor->jenis_id = $request->jenis_motor;
         $motor->tipe_motor = $request->tipe_motor;
         $motor->harga_motor = $request->harga_motor;
-        $motor->bahan_bakar = $request->bahan_bakar;
+        $motor->warna = $request->warna;
         $motor->ban_depan = $request->ban_depan;
         $motor->ban_belakang = $request->ban_belakang;
         $motor->jenis_ban = $request->jenis_ban;

@@ -25,7 +25,7 @@
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
             <ul class="nav side-menu">
-                <li><a href="{{route('pusat.dashboard')}}"><i class="fa fa-home"></i> Home </a></li>
+                <li><a href="{{ route('pusat.profile') }}"><i class="fa fa-user"></i> Profile Pusat </a></li>
                 <li><a href="{{route('pusat.motor')}}"><i class="fa fa-motorcycle"></i> Input Sepeda Motor </a></li>
                 <li><a href="{{route('pusat.dealer')}}"><i class="fa fa-users"></i> User Dealer </a></li>
 

@@ -10,7 +10,7 @@
         <!-- menu profile quick info -->
         <div class="profile clearfix">
             <div class="profile_pic">
-                <img src="{{asset('img/img.jpg')}}" alt="..." class="img-circle profile_img">
+                <img src="{{asset('img/avatar.png')}}" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
                 <span>Super Admin,</span>
@@ -72,7 +72,7 @@
                         <li class="nav-item dropdown open" style="padding-left: 15px;">
                             <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true"
                                id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                <img src="{{asset('img/img.jpg')}}" alt=""> {{ auth()->user()->name }}
+                                <img src="{{asset('img/avatar.png')}}" alt=""> {{ auth()->user()->name }}
                             </a>
                             <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{route('admin.logout')}}"><i

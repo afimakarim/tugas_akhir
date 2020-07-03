@@ -17,11 +17,11 @@ class CreateMotorsTable extends Migration
             $table->SoftDeletes();
             $table->bigIncrements('id');
             $table->bigInteger('merek_id')->unsigned();
-            $table->Integer('jenis_id')->unsigned();
+            $table->bigInteger('jenis_id')->unsigned();
             $table->string('gambar')->nullable()->default(null);
             $table->string('tipe_motor');
             $table->string('harga_motor');
-            $table->string('bahan_bakar');
+            $table->string('warna');
             $table->string('ban_depan');
             $table->string('ban_belakang');
             $table->string('jenis_ban');

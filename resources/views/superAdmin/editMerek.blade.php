@@ -22,7 +22,7 @@
                                 <div class="col-md-6 col-sm-6 ">
                                     <img src="{{ asset("storage/$merek->gambar") }}" alt="" class="" height="128">
                                     <input type="file" class="form-control" id="" name="gambar"
-                                           placeholder="Gambar Merek" value="{{ $merek->gambar }}" required>
+                                           placeholder="Gambar Merek" value="{{ $merek->gambar }}" >
                                 </div>
                             </div>
                             <div class="item form-group">

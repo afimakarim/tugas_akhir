@@ -37,8 +37,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="tipe_motor">Tipe Motor</label>
-                                    <select class="form-control" id="" name="tipe_motor">
-                                        <option value="" selected>-- Pilih Tipe Motor --</option>
+                                    <select class="form-control" id="" multiple="multiple" name="tipe_motor[]">
                                         @foreach($motors as $motor)
                                             <option value="{{ $motor->id }}">{{ $motor->tipe_motor }}</option>
                                         @endforeach
@@ -46,12 +45,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="judul_promo">Judul Promo</label>
-                                    <textarea id="" cols="30" rows="5" class="form-control" name="judul" placeholder="Judul Promo" required></textarea>
+                                    <textarea type="text" id="" cols="30" rows="5" class="form-control" name="judul" placeholder="Judul Promo" required></textarea>
 
                                 </div>
                                 <div class="form-group">
                                     <label for="keterangan_promo">Keterangan Promo</label>
-                                    <textarea id="" cols="30" rows="5" class="form-control" name="ket_promo" placeholder="Keterangan Promo" required></textarea>
+                                    <textarea type="text" id="" cols="30" rows="5" class="form-control" name="ket_promo" placeholder="Keterangan Promo" required></textarea>
 
                                 </div>
                                 <div class="modal-footer">

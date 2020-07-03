@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Kriteria;
 use App\Merek;
+use App\Nilai;
 use App\User;
 use App\Jenis;
 use Illuminate\Http\Request;
@@ -20,11 +22,6 @@ class superAdminController extends Controller
         return view('superAdmin.homeSuperAdmin');
     }
 
-
-    public function homeSuperAdmin()
-    {
-        return view('superAdmin.homeSuperAdmin');
-    }
 
     //user admin pusat
     public function userAdminPusat()
@@ -172,45 +169,67 @@ class superAdminController extends Controller
     //nilai
     public function nilai()
     {
-        return view('superAdmin.nilai');
+        $nilais = Nilai::all();
+        return view('superAdmin.nilai', compact('nilais'));
     }
-    public  function store8()
+    public  function store8(Request $request)
     {
+        $nilai = new Nilai();
+        $nilai->nama_nilai = $request->nama_nilai;
+        $nilai->nilai = $request->nilai;
+        $nilai->save();
 
+        return redirect()->route('admin.nilai')->withInfo('Merek Ditambahkan');
     }
-    public  function editNilai()
+    public  function editNilai(Nilai $nilai)
     {
-        return view('superAdmin.editNilai');
+        return view('superAdmin.editNilai' , compact('nilai'));
     }
-    public function updateNilai()
+    public function updateNilai(Request $request, Nilai $nilai)
     {
+        $nilai->nama_nilai = $request->nama_nilai;
+        $nilai->nilai = $request->nilai;
+        $nilai->update();
 
+        return redirect()->route('admin.nilai')->withInfo('Merek berhasil dirubah');
     }
-    public function destroy8()
+    public function destroy8(Nilai $nilai)
     {
-
+        $nilai->delete();
+        return redirect()->route('admin.nilai')->withDanger('Merek berhasil dihapus');
     }
 
     //kriteria
     public function kriteria()
     {
-        return view('superAdmin.kriteria');
+        $kriterias = Kriteria::all();
+        return view('superAdmin.kriteria', compact('kriterias'));
     }
-    public  function store9()
+    public  function store9(Request $request)
     {
+        $kriteria = new Kriteria();
+        $kriteria->nama_kriteria = $request->nama_kriteria;
+        $kriteria->tipe_kriteria = $request->tipe_kriteria;
+        $kriteria->save();
 
+        return redirect()->route('admin.kriteria')->withInfo('Merek Ditambahkan');
     }
-    public  function editKriteria()
+    public  function editKriteria(Kriteria $kriteria)
     {
-        return view('superAdmin.editKriteria');
+        return view('superAdmin.editKriteria' , compact('kriteria'));
     }
-    public function updateKriteria()
+    public function updateKriteria(Request $request, Kriteria $kriteria)
     {
+        $kriteria->nama_kriteria = $request->nama_kriteria;
+        $kriteria->tipe_kriteria = $request->tipe_kriteria;
+        $kriteria->update();
 
+        return redirect()->route('admin.kriteria')->withInfo('Merek berhasil dirubah');
     }
-    public function destroy9()
+    public function destroy9(Kriteria $kriteria)
     {
-
+        $kriteria->delete();
+        return redirect()->route('admin.kriteria')->withDanger('Merek berhasil dihapus');
     }
 
     //alternatif

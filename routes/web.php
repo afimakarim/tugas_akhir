@@ -53,7 +53,7 @@ Route::get('/hasil-SPK','UserController@hasilSPK')->name('user.spk.hasil');
      Route::post('/{user}/editUserAdminPusat','superAdminController@updateUserAdminPusat')->name('admin.pusat.update');
      Route::get('/{user}/deleteUserAdminPusat','superAdminController@destroy2')->name('admin.pusat.delete');
 
-     Route::get('/merek','superAdminController@merek')->name('admin.merek');
+     Route::get('/merek','Super_Admin\MerekController@merek')->name('admin.merek');
      Route::post('/merek', 'superAdminController@store')->name('admin.merek.store');
      Route::get('/{merek}/editMerek','superAdminController@editMerek')->name('admin.merek.edit');
      Route::post('/{merek}/editMerek', 'superAdminController@updateMerek')->name('admin.merek.update');

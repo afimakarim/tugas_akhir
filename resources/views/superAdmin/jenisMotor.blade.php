@@ -27,7 +27,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{ route('admin.jenis.store5') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('admin.jenis.store') }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
 
                                 <div class="form-group ">

@@ -28,7 +28,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{ route('admin.pusat.store2') }}" method="post"
+                            <form action="{{ route('admin.pusat.store') }}" method="post"
                                   enctype="multipart/form-data">
                                 {{ csrf_field() }}
 

@@ -40,9 +40,15 @@
                             </div>
                         </div>
                         <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align"for="">Jam Buka</label>
+                            <div class="col-md-6 col-sm-6 ">
+                                <textarea type="text" id="" cols="30" rows="5" class="form-control" name="jam_buka" placeholder="Jam Buka" required>{{ $dealer->ket_dealer }}</textarea>
+                            </div>
+                        </div>
+                        <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align"for="">Alamat Dealer</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <textarea type="text" id="" cols="30" rows="5" class="form-control" name="alamat" placeholder="Alamat Dealer" required>{{ $dealer->alamat }} </textarea>
+                                <textarea type="text" id="" cols="30" rows="5" class="form-control" name="alamat" placeholder="Alamat Dealer" required>{{ $dealer->alamat }}</textarea>
                             </div>
                         </div>
                         <div class="item form-group">

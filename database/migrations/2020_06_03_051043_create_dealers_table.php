@@ -23,6 +23,7 @@ class CreateDealersTable extends Migration
             $table->string('gambar')->nullable()->default(null);
             $table->string('telephone')->nullable();
             $table->string('ket_dealer')->nullable();
+            $table->string('jam_buka')->nullable();
             $table->string('alamat')->nullable();
             $table->rememberToken();
             $table->timestamps();

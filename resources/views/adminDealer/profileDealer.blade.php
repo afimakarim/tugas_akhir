@@ -35,7 +35,7 @@
 
                                 <h2>{{ auth()->user()->ket_dealer }}</h2>
                                 <br>
-
+                                <li>{{ auth()->user()->jam_buka }}</li>
                                 <li>{{ auth()->user()->telephone }}</li>
                                 <li>{{ auth()->user()->alamat }}</li>
                                 <li>{{ auth()->user()->email }}</li>

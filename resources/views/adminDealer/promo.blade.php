@@ -28,7 +28,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{route('dealer.promo.store7')}}" method="post"
+                            <form action="{{route('dealer.promo.store')}}" method="post"
                                   enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div class="form-group">
@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="tipe_motor">Tipe Motor</label>
-                                    <select class="form-control" id="" multiple="multiple" name="tipe_motor[]">
+                                    <select class="form-control" id="" multiple="multiple" name="tipe_motor[]" required>
                                         @foreach($motors as $motor)
                                             <option value="{{ $motor->id }}">{{ $motor->tipe_motor }}</option>
                                         @endforeach

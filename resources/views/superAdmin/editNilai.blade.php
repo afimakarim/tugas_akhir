@@ -19,7 +19,7 @@
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="nama_nilai">Keterangan Nilai</label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" class="form-control" id="" name="name" placeholder="Keterangan Nilai"
+                                    <input type="text" class="form-control" id="" name="nama_nilai" placeholder="Keterangan Nilai"
                                            value="{{ $nilai->nama_nilai }}" required>
                                 </div>
                             </div>

@@ -58,7 +58,7 @@
                         <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="harga_motor">Harga Motor</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" class="form-control" id="harga_motor" name="harga_motor" placeholder="Harga Motor" value="{{ $motor->harga_motor }}" required>
+                                <input type="number" class="form-control" id="harga_motor" name="harga_motor" placeholder="Harga Motor" value="{{ $motor->harga_motor }}" required>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -88,13 +88,13 @@
                         <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="kapasitas_mesin">Kapasitas Mesin</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" class="form-control" id="kapasitas_mesin" name="kapasitas_mesin" placeholder="Kapasitas Mesin" value="{{ $motor->kapasitas_mesin}}" required>
+                                <input type="number" step="0.01" class="form-control" id="kapasitas_mesin" name="kapasitas_mesin" placeholder="Kapasitas Mesin" value="{{ $motor->kapasitas_mesin}}" required>
                             </div>
                         </div>
                         <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="tenaga_maksimal">Tenaga Maksimal</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" class="form-control" id="tenaga_maksimal" name="tenaga_maksimal" placeholder="Tenaga Maksimal" value="{{ $motor->tenaga_maksimal }}" required>
+                                <input type="number" step="0.01" class="form-control" id="tenaga_maksimal" name="tenaga_maksimal" placeholder="Tenaga Maksimal" value="{{ $motor->tenaga_maksimal }}" required>
                             </div>
                         </div>
 

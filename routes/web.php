@@ -44,53 +44,54 @@ Route::get('/hasil-SPK','UserController@hasilSPK')->name('user.spk.hasil');
  Route::prefix('superAdmin')->group (function() {
      Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
      Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
-     Route::get('/', 'superAdminController@index')->name('admin.dashboard');
      Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
 
-     Route::get('/userAdminPusat','superAdminController@userAdminPusat')->name('admin.pusat');
-     Route::post('/userAdminPusat','superAdminController@store2')->name('admin.pusat.store2');
-     Route::get('/{user}/editUserAdminPusat','superAdminController@editUserAdminPusat')->name('admin.pusat.edit');
-     Route::post('/{user}/editUserAdminPusat','superAdminController@updateUserAdminPusat')->name('admin.pusat.update');
-     Route::get('/{user}/deleteUserAdminPusat','superAdminController@destroy2')->name('admin.pusat.delete');
+     Route::get('/', 'Super_Admin\HomeController@index')->name('admin.dashboard');
+
+     Route::get('/userAdminPusat','Super_Admin\PusatController@userAdminPusat')->name('admin.pusat');
+     Route::post('/userAdminPusat','Super_Admin\PusatController@store')->name('admin.pusat.store');
+     Route::get('/{user}/editUserAdminPusat','Super_Admin\PusatController@editUserAdminPusat')->name('admin.pusat.edit');
+     Route::post('/{user}/editUserAdminPusat','Super_Admin\PusatController@updateUserAdminPusat')->name('admin.pusat.update');
+     Route::get('/{user}/deleteUserAdminPusat','Super_Admin\PusatController@destroy')->name('admin.pusat.delete');
 
      Route::get('/merek','Super_Admin\MerekController@merek')->name('admin.merek');
-     Route::post('/merek', 'superAdminController@store')->name('admin.merek.store');
-     Route::get('/{merek}/editMerek','superAdminController@editMerek')->name('admin.merek.edit');
-     Route::post('/{merek}/editMerek', 'superAdminController@updateMerek')->name('admin.merek.update');
-     Route::get('/{merek}/deleteMerek', 'superAdminController@destroy')->name('admin.merek.delete');
+     Route::post('/merek', 'Super_Admin\MerekController@store')->name('admin.merek.store');
+     Route::get('/{merek}/editMerek','Super_Admin\MerekController@editMerek')->name('admin.merek.edit');
+     Route::post('/{merek}/editMerek', 'Super_Admin\MerekController@updateMerek')->name('admin.merek.update');
+     Route::get('/{merek}/deleteMerek', 'Super_Admin\MerekController@destroy')->name('admin.merek.delete');
 
-     Route::get('/jenis','superAdminController@jenis')->name('admin.jenis');
-     Route::post('/jenis', 'superAdminController@store5')->name('admin.jenis.store5');
-     Route::get('/{jenis}/editJenis','superAdminController@editJenis')->name('admin.jenis.edit');
-     Route::post('/{jenis}/editJenis', 'superAdminController@updateJenis')->name('admin.jenis.update');
-     Route::get('/{jenis}/deleteJenis', 'superAdminController@destroy5')->name('admin.jenis.delete');
+     Route::get('/jenis','Super_Admin\JenisController@jenis')->name('admin.jenis');
+     Route::post('/jenis', 'Super_Admin\JenisController@store')->name('admin.jenis.store');
+     Route::get('/{jenis}/editJenis','Super_Admin\JenisController@editJenis')->name('admin.jenis.edit');
+     Route::post('/{jenis}/editJenis', 'Super_Admin\JenisController@updateJenis')->name('admin.jenis.update');
+     Route::get('/{jenis}/deleteJenis', 'Super_Admin\JenisController@destroy')->name('admin.jenis.delete');
 
-     Route::get('/nilai','superAdminController@nilai')->name('admin.nilai');
-     Route::post('/nilai', 'superAdminController@store8')->name('admin.nilai.store8');
-     Route::get('/{nilai}/editNilai','superAdminController@editNilai')->name('admin.nilai.edit');
-     Route::post('/{nilai}/editNilai', 'superAdminController@updateNilai')->name('admin.nilai.update');
-     Route::get('/{nilai}/deleteNilai', 'superAdminController@destroy8')->name('admin.nilai.delete');
+     Route::get('/nilai','Super_Admin\NilaiController@nilai')->name('admin.nilai');
+     Route::post('/nilai', 'Super_Admin\NilaiController@store')->name('admin.nilai.store');
+     Route::get('/{nilai}/editNilai','Super_Admin\NilaiController@editNilai')->name('admin.nilai.edit');
+     Route::post('/{nilai}/editNilai', 'Super_Admin\NilaiController@updateNilai')->name('admin.nilai.update');
+     Route::get('/{nilai}/deleteNilai', 'Super_Admin\NilaiController@destroy')->name('admin.nilai.delete');
 
-     Route::get('/kriteria','superAdminController@kriteria')->name('admin.kriteria');
-     Route::post('/kriteria', 'superAdminController@store9')->name('admin.kriteria.store9');
-     Route::get('/{kriteria}/editkriteria','superAdminController@editKriteria')->name('admin.kriteria.edit');
-     Route::post('/{kriteria}/editKriteria', 'superAdminController@updateKriteria')->name('admin.kriteria.update');
-     Route::get('/{kriteria}/deleteKriteria', 'superAdminController@destroy8')->name('admin.kriteria.delete');
+     Route::get('/kriteria','Super_Admin\KriteriaController@kriteria')->name('admin.kriteria');
+     Route::post('/kriteria', 'Super_Admin\KriteriaController@store')->name('admin.kriteria.store');
+     Route::get('/{kriteria}/editkriteria','Super_Admin\KriteriaController@editKriteria')->name('admin.kriteria.edit');
+     Route::post('/{kriteria}/editKriteria', 'Super_Admin\KriteriaController@updateKriteria')->name('admin.kriteria.update');
+     Route::get('/{kriteria}/deleteKriteria', 'Super_Admin\KriteriaController@destroy')->name('admin.kriteria.delete');
 
-     Route::get('/alternatif','superAdminController@alternatif')->name('admin.alternatif');
-     Route::post('/alternatif', 'superAdminController@store10')->name('admin.kriteria.store10');
+     Route::get('/alternatif','Super_Admin\AlternatifController@alternatif')->name('admin.alternatif');
+     Route::post('/alternatif', 'Super_Admin\AlternatifController@store')->name('admin.kriteria.store');
 
-     Route::get('/bobot','superAdminController@bobot')->name('admin.bobot');
-     Route::post('/bobot', 'superAdminController@store11')->name('admin.bobot.store11');
-     Route::get('/editBobot','superAdminController@editBobot')->name('admin.bobot.edit');
-     Route::post('/{bobot}/editBobot', 'superAdminController@updateBobot')->name('admin.bobot.update');
-     Route::get('/{bobot}/deleteBobot', 'superAdminController@destroy11')->name('admin.bobot.delete');
+     Route::get('/bobot','Super_Admin\BobotController@bobot')->name('admin.bobot');
+     Route::post('/bobot', 'Super_Admin\BobotController@store')->name('admin.bobot.store');
+     Route::get('/editBobot','Super_Admin\BobotController@editBobot')->name('admin.bobot.edit');
+     Route::post('/{bobot}/editBobot', 'Super_Admin\BobotController@updateBobot')->name('admin.bobot.update');
+     Route::get('/{bobot}/deleteBobot', 'Super_Admin\BobotController@destroy')->name('admin.bobot.delete');
 
-     Route::get('/perangkingan','superAdminController@perangkingan')->name('admin.perangkingan');
-     Route::post('/perangkingan', 'superAdminController@store12')->name('admin.perangkingan.store12');
+     Route::get('/perangkingan','Super_Admin\PerangkinganController@perangkingan')->name('admin.perangkingan');
+     Route::post('/perangkingan', 'Super_Admin\PerangkinganController@store')->name('admin.perangkingan.store');
 
-     Route::get('/pengunjung','superAdminController@pengunjung')->name('admin.pengunjung');
-     Route::post('/pengunjung', 'superAdminController@store13')->name('admin.pengunjung.store13');
+     Route::get('/pengunjung','Super_Admin\PengunjungController@pengunjung')->name('admin.pengunjung');
+     Route::post('/pengunjung', 'Super_Admin\PengunjungController@store')->name('admin.pengunjung.store');
 
      // Password Reset routes
      Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
@@ -105,22 +106,22 @@ Route::get('/hasil-SPK','UserController@hasilSPK')->name('user.spk.hasil');
     Route::post('/login', 'Auth\LoginController@login')->name('pusat.login.submit');
     Route::get('/logout', 'Auth\LoginController@logout')->name('pusat.logout');
 
-    Route::get('/', 'adminPusatController@profilePusat')->name('pusat.profile');
-    Route::get('/{user}/editPofilePusat','adminPusatController@editProfilePusat')->name('pusat.profile.edit');
-    Route::post('/{user}/editPofilePusat','adminPusatController@updateProfilePusat')->name('pusat.profile.update');
+    Route::get('/', 'Admin_Pusat\ProfileController@profilePusat')->name('pusat.profile');
+    Route::get('/{user}/editPofilePusat','Admin_Pusat\ProfileController@editProfilePusat')->name('pusat.profile.edit');
+    Route::post('/{user}/editPofilePusat','Admin_Pusat\ProfileController@updateProfilePusat')->name('pusat.profile.update');
 
-    Route::get('/userAdminDealer','adminPusatController@userAdminDealer')->name('pusat.dealer');
-    Route::post('/userAdminDealer','adminPusatController@store3')->name('pusat.dealer.store3');
-    Route::get('/{dealer}/editUserAdminDealer','adminPusatController@editUserAdminDealer')->name('pusat.dealer.edit');
-    Route::post('/{dealer}/editUserAdminDealer','adminPusatController@updateUserAdminDealer')->name('pusat.dealer.update');
-    Route::get('/{dealer}/deleteUserAdminDealer','adminPusatController@destroy3')->name('pusat.dealer.delete');
+    Route::get('/userAdminDealer','Admin_Pusat\DealerController@userAdminDealer')->name('pusat.dealer');
+    Route::post('/userAdminDealer','Admin_Pusat\DealerController@store')->name('pusat.dealer.store');
+    Route::get('/{dealer}/editUserAdminDealer','Admin_Pusat\DealerController@editUserAdminDealer')->name('pusat.dealer.edit');
+    Route::post('/{dealer}/editUserAdminDealer','Admin_Pusat\DealerController@updateUserAdminDealer')->name('pusat.dealer.update');
+    Route::get('/{dealer}/deleteUserAdminDealer','Admin_Pusat\DealerController@destroy')->name('pusat.dealer.delete');
 
 
-    Route::get('/dataMotor','adminPusatController@dataMotor')->name('pusat.motor');
-    Route::post('/dataMotor','adminPusatController@store4')->name('pusat.motor.store4');
-    Route::get('/{motor}/editDataMotor','adminPusatController@editDataMotor')->name('pusat.motor.edit');
-    Route::post('/{motor}/editDataMotor','adminPusatController@updateDataMotor')->name('pusat.motor.update');
-    Route::get('/{motor}/deleteDataMotor','adminPusatController@destroy4')->name('pusat.motor.delete');
+    Route::get('/dataMotor','Admin_Pusat\MotorController@dataMotor')->name('pusat.motor');
+    Route::post('/dataMotor','Admin_Pusat\MotorController@store')->name('pusat.motor.store');
+    Route::get('/{motor}/editDataMotor','Admin_Pusat\MotorController@editDataMotor')->name('pusat.motor.edit');
+    Route::post('/{motor}/editDataMotor','Admin_Pusat\MotorController@updateDataMotor')->name('pusat.motor.update');
+    Route::get('/{motor}/deleteDataMotor','Admin_Pusat\MotorController@destroy')->name('pusat.motor.delete');
 
 });
 
@@ -129,24 +130,23 @@ Route::get('/hasil-SPK','UserController@hasilSPK')->name('user.spk.hasil');
 Route::prefix('dealer')->group (function() {
     Route::get('/login', 'Auth\DealerLoginController@showLoginForm')->name('dealer.login');
     Route::post('/login', 'Auth\DealerLoginController@login')->name('dealer.login.submit');
-    Route::get('/', 'adminDealerController@index')->name('dealer.dashboard');
     Route::get('/logout', 'Auth\DealerLoginController@logout')->name('dealer.logout');
 
-    Route::get('/profileDealer','adminDealerController@profileDealer')->name('dealer.profile');
-    Route::get('/{dealer}/editPofileDealer','adminDealerController@editProfileDealer')->name('dealer.profile.edit');
-    Route::post('/{dealer}/editPofileDealer','adminDealerController@updateProfileDealer')->name('dealer.profile.update');
+    Route::get('/','Admin_Dealer\ProfileController@profileDealer')->name('dealer.profile');
+    Route::get('/{dealer}/editPofileDealer','Admin_Dealer\ProfileController@editProfileDealer')->name('dealer.profile.edit');
+    Route::post('/{dealer}/editPofileDealer','Admin_Dealer\ProfileController@updateProfileDealer')->name('dealer.profile.update');
 
-    Route::get('/promo','adminDealerController@promo')->name('dealer.promo');
-    Route::post('/promo','adminDealerController@store7')->name('dealer.promo.store7');
-    Route::get('/{promo}/editPromo','adminDealerController@editPromo')->name('dealer.promo.edit');
-    Route::post('/{promo}/editPromo','adminDealerController@updatePromo')->name('dealer.promo.update');
-    Route::get('/{promo}/deletePromo','adminDealerController@destroy7')->name('dealer.promo.delete');
+    Route::get('/promo','Admin_Dealer\PromoController@promo')->name('dealer.promo');
+    Route::post('/promo','Admin_Dealer\PromoController@store')->name('dealer.promo.store');
+    Route::get('/{promo}/editPromo','Admin_Dealer\PromoController@editPromo')->name('dealer.promo.edit');
+    Route::post('/{promo}/editPromo','Admin_Dealer\PromoController@updatePromo')->name('dealer.promo.update');
+    Route::get('/{promo}/deletePromo','Admin_Dealer\PromoController@destroy')->name('dealer.promo.delete');
 
-    Route::get('/rangking','adminDealerController@rangking')->name('dealer.rangking');
-    Route::post('/rangking','adminDealerController@store14')->name('dealer.rangking.store14');
-    Route::get('/{alternatif}/editRangking','adminDealerController@editRangking')->name('dealer.rangking.edit');
-    Route::post('/{alternatif}/editRangking','adminDealerController@updateRangking')->name('dealer.rangking.update');
-    Route::get('/{alternatif}/deleteRangking','adminDealerController@destroy14')->name('dealer.rangking.delete');
+    Route::get('/rangking','Admin_Dealer\RangkingController@rangking')->name('dealer.rangking');
+    Route::post('/rangking','Admin_Dealer\RangkingController@store')->name('dealer.rangking.store');
+    Route::get('/{alternatif}/editRangking','Admin_Dealer\RangkingController@editRangking')->name('dealer.rangking.edit');
+    Route::post('/{alternatif}/editRangking','Admin_Dealer\RangkingController@updateRangking')->name('dealer.rangking.update');
+    Route::get('/{alternatif}/deleteRangking','Admin_Dealer\RangkingController@destroy')->name('dealer.rangking.delete');
 
 
 

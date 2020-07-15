@@ -24,7 +24,7 @@
                             </div><br>
                             <div class="input-group">
                                 <select class="form-control custom_select3">
-                                    <option value=""  disabled selected > -- Teknologi Motor -- </option>
+                                    <option value=""  disabled selected > -- Kapasitas Tengki -- </option>
                                     <option value="1">Sangat Penting</option>
                                     <option value="2">Penting</option>
                                     <option value="3">Cukup Penting</option>

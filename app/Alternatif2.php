@@ -9,7 +9,8 @@ class Alternatif2 extends Model
 {
     use SoftDeletes;
     protected $table = 'alternatif2';
-    protected $fillable = [
-        'alternatif', 'harga', 'teknologi_motor', 'kapasitas_mesin', 'desain_motor'
-    ];
+    protected $guarded = [];
+//    protected $fillable = [
+//        'alternatif', 'harga', 'teknologi_motor', 'kapasitas_mesin', 'desain_motor'
+//    ];
 }

@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('test/import', 'TestLaravelExcelController@import');
+
+Route::get('test/spk', 'TestWeightedProductController@index');
+Route::post('test/spk/submit', 'TestWeightedProductController@store')->name('test.spk.post');
+
  //percobaan
 Auth::routes();
 // Auth::routes(["register" => false]);

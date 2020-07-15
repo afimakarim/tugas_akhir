@@ -17,9 +17,10 @@ class CreateAlternatif2Table extends Migration
             $table->bigIncrements('id');
             $table->string('alternatif');
             $table->integer('harga');
-            $table->integer('teknologi_motor');
             $table->integer('kapasitas_mesin');
-            $table->integer('desain_motor');
+            $table->integer('berat');
+            $table->integer('kapasitas_tengki');
+            $table->integer('kapasitas_bagasi');
             $table->timestamps();
             $table->SoftDeletes();
         });

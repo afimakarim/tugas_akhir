@@ -18,7 +18,11 @@ class TestWeightedProductController extends Controller
 //        dd($request->all());
         $digit_decimal = 18;
 
-        $datasets = Alternatif2::all();
+        if ($request->jenis == 4) {
+            $datasets = Alternatif2::all();
+        } else {
+            $datasets = Alternatif2::where('jenis_motor', $request->jenis)->get();
+        }
 
         $data = [];
         foreach ($request->all() as $key => $item) {
@@ -68,6 +72,6 @@ class TestWeightedProductController extends Controller
 //        dd($recomended);
 //        dd(sort($vector_v));
 
-        dd( "Weight",$weight, "TOP 10 Recommended", $recomended, "Jumlah Vector V",array_sum($vector_v), "Vector S", $vector_s, "Vector V", $vector_v, "Alternatif dari DB", $alternatives);
+        dd("Weight", $weight, "TOP 10 Recommended", $recomended, "Jumlah Vector V", array_sum($vector_v), "Vector S", $vector_s, "Vector V", $vector_v, "Alternatif dari DB", $alternatives);
     }
 }

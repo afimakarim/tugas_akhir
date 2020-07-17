@@ -16,6 +16,15 @@
     <form method="post" action="{{ route('test.spk.post') }}">
         {{ csrf_field() }}
         <div class="form-group">
+            <label for="jenis">Jenis Motor</label>
+            <select class="form-control" name="jenis" id="jenis">
+                <option value="4">Semua</option>
+                <option value="3">Sport</option>
+                <option value="2">Bebek</option>
+                <option value="1">Matic</option>
+            </select>
+        </div>
+        <div class="form-group">
             <label for="harga">Harga</label>
             <input type="text" class="form-control" name="harga" placeholder="Enter Harga">
         </div>

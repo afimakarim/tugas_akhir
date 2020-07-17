@@ -11,7 +11,6 @@ class TestLaravelExcelController extends Controller
 {
     public function import()
     {
-//        return ''.public_path('dataset\Dataset_SPK_MOTOR_NORMALISASI.xlsx');
         Excel::import(new Alternatif2Import(),'Dataset_SPK_MOTOR_NORMALISASI.xlsx');
     }
 }

@@ -20,7 +20,9 @@ class Alternatif2Import implements ToModel, WithHeadingRow
     {
 //        dd($row);
         return new Alternatif2([
-            'alternatif' => $row['nama'],
+            'alternatif' => $row['tipe_motor'],
+            'merek' => $row['n_merek'],
+            'jenis_motor' => $row['n_jenis_motor'],
             'harga' => $row['n_harga'],
             'kapasitas_mesin' => $row['n_kapasitas_mesin'],
             'berat' => $row['n_berat'],

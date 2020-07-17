@@ -16,6 +16,8 @@ class CreateAlternatif2Table extends Migration
         Schema::create('alternatif2', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('alternatif');
+            $table->integer('merek');
+            $table->integer('jenis_motor');
             $table->integer('harga');
             $table->integer('kapasitas_mesin');
             $table->integer('berat');

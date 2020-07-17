@@ -15,16 +15,19 @@ class TestWeightedProductController extends Controller
 
     public function store(Request $request)
     {
+//        dd($request->all());
         $digit_decimal = 18;
 
         $datasets = Alternatif2::all();
 
         $data = [];
         foreach ($request->all() as $key => $item) {
-            if ($key != '_token') {
+            if ($key != '_token' && $key != 'jenis') {
                 $data[] = (int)$item;
             }
         }
+
+//        dd($data);
 
         $weight = [];
 
@@ -36,10 +39,14 @@ class TestWeightedProductController extends Controller
             }
         }
 
+//        dd($weight);
+
         $alternatives = (array)[];
         foreach ($datasets as $key => $item) {
             $alternatives[$item['alternatif']] = [$item['harga'], $item['kapasitas_mesin'], $item['berat'], $item['kapasitas_tengki'], $item['kapasitas_tengki']];
         }
+
+//        dd($alternatives);
 
         $func = function ($a, $w) {
             return pow($a, $w);
@@ -50,15 +57,17 @@ class TestWeightedProductController extends Controller
             $vector_s[$key] = (float)number_format(array_product(array_map($func, $item, $weight)), $digit_decimal);
         }
 
+//        dd($vector_s);
+
         $vector_v = (array)[];
         foreach ($vector_s as $key => $item) {
             $vector_v[$key] = (float)number_format($item / (array_sum($vector_s)), $digit_decimal);
         }
         arsort($vector_v);
-//        $recomended = array_splice($vector_v, 0, 10);
+        $recomended = array_slice($vector_v, 0, 10);
 //        dd($recomended);
 //        dd(sort($vector_v));
 
-        dd($weight, array_sum($vector_v), $vector_s, $vector_v, $alternatives);
+        dd( "Weight",$weight, "TOP 10 Recommended", $recomended, "Jumlah Vector V",array_sum($vector_v), "Vector S", $vector_s, "Vector V", $vector_v, "Alternatif dari DB", $alternatives);
     }
 }
